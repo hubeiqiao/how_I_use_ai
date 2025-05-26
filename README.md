@@ -1,6 +1,6 @@
 # How I Use AI Tools Personally - Website
 
-This project is the website version of the article "How I Use AI Tools Personally (May 2025)" by Joe Hu.
+This project is the website version of the article " [How I Use AI Tools Personally (May 2025)](https://joe-ai.pages.dev/) " by Joe Hu.
 
 ## Structure
 
