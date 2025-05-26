@@ -1,0 +1,2106 @@
+/* Base styles */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 221.2 83.2% 53.3%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 221.2 83.2% 53.3%;
+  --radius: 0.5rem;
+  --leading-loose: 1.8;
+}
+
+.dark {
+  --background: 215 25% 10%;
+  --foreground: 210 40% 98%;
+  --card: 215 28% 12%;
+  --card-foreground: 210 40% 98%;
+  --popover: 215 28% 12%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 217.2 91.2% 59.8%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 224.3 76.3% 48%;
+}
+
+/* Custom styles - Apple inspired */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: -0.015em;
+}
+
+/* Global typography updates */
+p {
+  font-size: 1.05rem;
+  line-height: var(--leading-loose);
+  color: rgba(60, 60, 67, 0.85);
+}
+
+.dark p {
+  color: rgba(235, 235, 245, 0.85);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2.25rem; }
+h3 { font-size: 1.875rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1.125rem; }
+
+/* Apple-style cards and hover effects */
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1), 0 15px 15px -10px rgba(0, 0, 0, 0.04);
+}
+
+.dark .card-hover:hover {
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.4), 0 15px 15px -10px rgba(0, 0, 0, 0.3);
+}
+
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 16px;
+}
+
+.tool-icon {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.section-divider {
+  height: 5px;
+  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+  border-radius: 5px;
+  margin: 3rem 0;
+}
+
+.dark .section-divider {
+  background: linear-gradient(to right, #60a5fa, #a78bfa);
+}
+
+/* Apple-style elegant spacing */
+.container {
+  padding-left: max(24px, env(safe-area-inset-left));
+  padding-right: max(24px, env(safe-area-inset-right));
+}
+
+/* Background pattern for visual interest */
+.bg-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.dark .bg-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Tool logos */
+.tool-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.tool-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: inherit;
+}
+
+.logo-chatgpt {
+  background-color: #10a37f;
+  color: white;
+}
+
+.logo-gemini {
+  background-color: #8e44ad;
+  color: white;
+}
+
+.logo-claude {
+  background-color: #5436DA;
+  color: white;
+}
+
+.logo-perplexity {
+  background-color: #ff6b6b;
+  color: white;
+}
+
+.logo-grok {
+  background-color: #1DA1F2;
+  color: white;
+}
+
+.logo-cursor {
+  background-color: #3498db;
+  color: white;
+}
+
+.logo-windsurf {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.logo-lovable {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.logo-replit {
+  background-color: #f39c12;
+  color: white;
+}
+
+.logo-v0 {
+  background-color: #000000;
+  color: white;
+}
+
+.logo-bolt {
+  background-color: #f1c40f;
+  color: black;
+}
+
+.logo-firebase {
+  background-color: #FFA000;
+  color: white;
+}
+
+.logo-notion {
+  background-color: #000000;
+  color: white;
+}
+
+.logo-arc {
+  background-color: #5851DB;
+  color: white;
+}
+
+/* MOBILE ENHANCEMENTS - Added for better mobile experience */
+@media (max-width: 768px) {
+  /* Decrease header height on mobile */
+  header .container {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+
+  /* Prevent header title from wrapping */
+  header .container h1 {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* Reduce avatar and icon sizes in header */
+  header .container .w-8.h-8,
+  header .container .w-8.h-8.md\:w-12.md\:h-12,
+  header .container a.w-8.h-8,
+  header .container a.w-8.h-8.md\:w-10.md\:h-10 {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+  }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.25rem; }
+  h5 { font-size: 1.125rem; }
+  h6 { font-size: 1rem; }
+  
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  /* Improve header on mobile */
+  header .text-2xl {
+    font-size: 1.25rem;
+  }
+  
+  /* Fix tool logo sizing on mobile */
+  .tool-logo {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    margin-right: 8px;
+  }
+  
+  /* Fix card layouts for better readability */
+  .card-hover {
+    padding: 1rem !important;
+  }
+  
+  /* Improve spacing in tool cards */
+  .flex.items-center.mb-6 {
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Fix padding in nested elements for mobile */
+  .p-8 {
+    padding: 1.25rem;
+  }
+  
+  .p-6 {
+    padding: 1rem;
+  }
+  
+  /* Fix section spacing */
+  .mb-16 {
+    margin-bottom: 2.5rem;
+  }
+  
+  .mb-12 {
+    margin-bottom: 2rem;
+  }
+  
+  .mb-8 {
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Fix tool icon sizes in mobile */
+  .h-16.w-16, .w-16.h-16 {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .h-10.w-10, .w-10.h-10 {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  /* Fix spacing in grid layouts */
+  .gap-8 {
+    gap: 1rem;
+  }
+  
+  .gap-6 {
+    gap: 0.75rem;
+  }
+  
+  /* Fix profile image size in hero section */
+  .w-20.h-20.md\:w-24.md\:h-24 {
+    width: 4rem;
+    height: 4rem;
+  }
+  
+  /* Fix tool descriptions getting cut off */
+  .whitespace-nowrap {
+    white-space: normal;
+  }
+  
+  /* Fix tool cards in grid views */
+  .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3 .bg-white {
+    height: auto !important;
+  }
+  
+  /* Fix image containers and ensure images scale properly */
+  .rounded-xl.flex.items-center.justify-center img,
+  .rounded-lg.mr-4 img,
+  .h-16.w-16.rounded-xl img,
+  .w-16.h-16.rounded-2xl img,
+  .tool-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  /* Fix too large margins and paddings in mobile */
+  .p-10 {
+    padding: 1.5rem;
+  }
+  
+  /* Fix the model selection icons */
+  .flex.flex-wrap.gap-2 .bg-blue-50,
+  .flex.flex-wrap.gap-2 .bg-purple-50 {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Fix spacing in key insight box */
+  .relative.mt-6.bg-gradient-to-r.from-indigo-50.to-purple-50 {
+    padding: 1rem;
+  }
+  
+  /* Better spacing for navigation elements */
+  .flex.items-center.gap-5 {
+    gap: 0.5rem;
+  }
+  
+  /* Fix the hero heading */
+  .text-3xl.md\:text-4xl.font-bold.bg-gradient-to-r.from-blue-600.to-purple-600 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+  
+  /* Fix tool cards with long names */
+  .flex.items-center.mb-6 .text-2xl {
+    font-size: 1.25rem;
+  }
+  
+  /* Make the Google AI Studio name fit better */
+  .text-2xl.font-semibold.whitespace-nowrap {
+    white-space: normal;
+    font-size: 1.25rem;
+  }
+  
+  /* Fix additional spacing issues */
+  .mb-6 {
+    margin-bottom: 1rem;
+  }
+  
+  /* Fix padding in section backgrounds */
+  .bg-gradient-to-br.rounded-xl.p-8 {
+    padding: 1.25rem;
+  }
+  
+  /* Fix gallery layout for mobile */
+  .grid.grid-cols-1.md\:grid-cols-3.gap-6 {
+    gap: 0.75rem;
+  }
+  
+  /* Fix tiny buttons on mobile */
+  .py-2.px-4 {
+    padding: 0.35rem 0.75rem;
+  }
+  
+  /* Improve tool card layouts on mobile */
+  .space-y-3 .flex.items-center.p-3 {
+    padding: 0.5rem;
+  }
+  
+  /* Fix buttons on mobile */
+  .relative.overflow-hidden.inline-flex.items-center.px-5.py-2\.5 {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  /* Improve research examples */
+  .pl-4.border-l-2.border-blue-200 {
+    padding-left: 0.75rem;
+  }
+}
+
+/* Additional fixes for extra small screens */
+@media (max-width: 374px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+  
+  /* Further reduce paddings */
+  .p-8, .p-6, .p-5 {
+    padding: 0.75rem;
+  }
+  
+  /* Fix icon sizing */
+  .h-16.w-16, .w-16.h-16 {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  /* Improve tool cards on tiny screens */
+  .tool-logo {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+  }
+  
+  /* Make sure text doesn't overflow */
+  .text-2xl, .text-xl {
+    font-size: 1rem;
+  }
+  
+  /* Fix icon containers */
+  .p-3.rounded-xl {
+    padding: 0.5rem;
+  }
+}
+
+/* Improved dark mode styles */
+.dark .bg-gradient-to-br.from-blue-50.to-purple-50 {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%) !important;
+  border: 1px solid rgba(51, 65, 85, 0.5);
+}
+.dark .text-blue-500 {
+  color: #60a5fa !important;
+}
+.dark .text-blue-600 {
+  color: #3b82f6 !important;
+}
+.dark .bg-blue-50 {
+  background-color: rgba(30, 41, 59, 0.6) !important;
+}
+.dark .bg-gray-50 {
+  background-color: rgba(24, 24, 27, 0.6) !important;
+}
+.dark .bg-amber-50 {
+  background-color: rgba(120, 53, 15, 0.15) !important;
+}
+.dark .bg-rose-50 {
+  background-color: rgba(136, 19, 55, 0.15) !important;
+}
+.dark .bg-purple-100 {
+  background-color: rgba(167, 139, 250, 0.15) !important;
+}
+.dark .bg-cyan-100 {
+  background-color: rgba(34, 211, 238, 0.15) !important;
+}
+.dark .bg-green-100 {
+  background-color: rgba(34, 197, 94, 0.15) !important;
+}
+.dark .bg-red-100 {
+  background-color: rgba(239, 68, 68, 0.15) !important;
+}
+.dark .bg-emerald-100 {
+  background-color: rgba(16, 185, 129, 0.15) !important;
+}
+.dark .bg-violet-100 {
+  background-color: rgba(139, 92, 246, 0.15) !important;
+}
+.dark .bg-white {
+  background-color: rgba(24, 24, 27, 0.8) !important;
+}
+.dark .text-gray-700 {
+  color: #d1d5db !important;
+}
+.dark .text-gray-600 {
+  color: #9ca3af !important;
+}
+.dark .text-gray-800 {
+  color: #f3f4f6 !important;
+}
+.dark .text-blue-800 {
+  color: #a5b4fc !important;
+}
+.dark .bg-blue-100 {
+  background-color: rgba(30, 64, 175, 0.2) !important;
+}
+.dark .bg-purple-100 {
+  background-color: rgba(109, 40, 217, 0.2) !important;
+}
+.dark .bg-amber-100 {
+  background-color: rgba(245, 158, 66, 0.2) !important;
+}
+.dark .bg-rose-100 {
+  background-color: rgba(244, 63, 94, 0.2) !important;
+}
+.dark .bg-gray-100 {
+  background-color: rgba(39, 39, 42, 0.6) !important;
+}
+.dark .text-gray-900 {
+  color: #f3f4f6 !important;
+}
+.dark .text-gray-500 {
+  color: #a1a1aa !important;
+}
+.dark .text-gray-400 {
+  color: #d1d5db !important;
+}
+.dark .border-gray-200 {
+  border-color: rgba(39, 39, 42, 0.5) !important;
+}
+.dark .border-gray-700 {
+  border-color: rgba(39, 39, 42, 0.8) !important;
+}
+.dark .border-blue-500 {
+  border-color: #6366f1 !important;
+}
+.dark .border-blue-400 {
+  border-color: #818cf8 !important;
+}
+.dark .border-gray-800 {
+  border-color: rgba(24, 24, 27, 0.9) !important;
+}
+
+/* Additional dark mode improvements */
+.dark .bg-indigo-50 {
+  background-color: rgba(49, 46, 129, 0.2) !important;
+}
+.dark .bg-emerald-50 {
+  background-color: rgba(16, 185, 129, 0.15) !important;
+}
+.dark .bg-violet-50 {
+  background-color: rgba(139, 92, 246, 0.15) !important;
+}
+.dark .bg-rose-50 {
+  background-color: rgba(225, 29, 72, 0.15) !important;
+}
+.dark .text-emerald-800 {
+  color: #34d399 !important;
+}
+.dark .text-emerald-600 {
+  color: #10b981 !important;
+}
+.dark .text-violet-800 {
+  color: #a78bfa !important;
+}
+.dark .text-amber-800 {
+  color: #fbbf24 !important;
+}
+.dark .text-rose-800 {
+  color: #fb7185 !important;
+}
+.dark .text-purple-800 {
+  color: #c084fc !important;
+}
+.dark .text-cyan-800 {
+  color: #22d3ee !important;
+}
+.dark .text-green-800 {
+  color: #4ade80 !important;
+}
+.dark .text-indigo-800 {
+  color: #818cf8 !important;
+}
+.dark .border-indigo-100 {
+  border-color: rgba(49, 46, 129, 0.2) !important;
+}
+.dark .border-rose-100 {
+  border-color: rgba(225, 29, 72, 0.2) !important;
+}
+.dark .border-purple-100 {
+  border-color: rgba(109, 40, 217, 0.2) !important;
+}
+.dark .border-amber-200 {
+  border-color: rgba(251, 191, 36, 0.2) !important;
+}
+
+/* Improved gradient backgrounds for dark mode */
+.dark .bg-gradient-to-br.from-gray-50.to-blue-50 {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(30, 58, 138, 0.3) 100%) !important;
+}
+.dark .bg-gradient-to-br.from-gray-50.to-indigo-50 {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(49, 46, 129, 0.3) 100%) !important;
+}
+.dark .bg-gradient-to-br.from-gray-50.to-purple-50 {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(109, 40, 217, 0.3) 100%) !important;
+}
+.dark .bg-gradient-to-br.from-gray-50.to-amber-50 {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(180, 90, 29, 0.3) 100%) !important;
+}
+.dark .bg-gradient-to-br.from-gray-50.to-violet-50 {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(139, 92, 246, 0.3) 100%) !important;
+}
+.dark .bg-gradient-to-br.from-gray-50.to-emerald-50 {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(16, 185, 129, 0.3) 100%) !important;
+}
+.dark .bg-gradient-to-br.from-gray-50.to-green-50 {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(34, 197, 94, 0.3) 100%) !important;
+}
+.dark .bg-gradient-to-br.from-gray-50.to-rose-50 {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(225, 29, 72, 0.3) 100%) !important;
+}
+.dark .bg-gradient-to-br.from-rose-50.to-rose-100 {
+  background: linear-gradient(135deg, rgba(225, 29, 72, 0.15) 0%, rgba(225, 29, 72, 0.25) 100%) !important;
+}
+.dark .bg-gradient-to-br.from-white.to-blue-50 {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(30, 58, 138, 0.3) 100%) !important;
+}
+.dark .bg-gradient-to-br.from-white.to-indigo-50 {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(49, 46, 129, 0.3) 100%) !important;
+}
+.dark .bg-gradient-to-r.from-white.to-rose-50 {
+  background: linear-gradient(to right, rgba(30, 41, 59, 0.8) 0%, rgba(225, 29, 72, 0.3) 100%) !important;
+}
+.dark .bg-gradient-to-r.from-white.to-purple-50 {
+  background: linear-gradient(to right, rgba(30, 41, 59, 0.8) 0%, rgba(109, 40, 217, 0.3) 100%) !important;
+}
+.dark .bg-gradient-to-r.from-white.to-blue-50 {
+  background: linear-gradient(to right, rgba(30, 41, 59, 0.8) 0%, rgba(30, 58, 138, 0.3) 100%) !important;
+}
+.dark .bg-gradient-to-r.from-white.to-indigo-50 {
+  background: linear-gradient(to right, rgba(30, 41, 59, 0.8) 0%, rgba(49, 46, 129, 0.3) 100%) !important;
+}
+.dark .bg-gradient-to-br.from-rose-50.to-amber-50 {
+  background: linear-gradient(135deg, rgba(225, 29, 72, 0.15) 0%, rgba(180, 90, 29, 0.25) 100%) !important;
+}
+
+/* Card and container backgrounds */
+.dark .bg-gray-800,
+.dark .bg-gray-800\/90 {
+  background-color: rgba(31, 41, 55, 0.9) !important;
+}
+
+.dark .bg-gray-900\/60,
+.dark .bg-gray-900\/90 {
+  background-color: rgba(17, 24, 39, 0.9) !important;
+}
+
+/* More visible borders for dark mode */
+.dark .border {
+  border-color: rgba(75, 85, 99, 0.4) !important;
+}
+
+/* Enhanced card hover effects in dark mode */
+.dark .hover\:bg-gray-50:hover {
+  background-color: rgba(55, 65, 81, 0.3) !important;
+}
+
+.dark .hover\:bg-gray-100:hover {
+  background-color: rgba(55, 65, 81, 0.4) !important;
+}
+
+.dark .hover\:bg-gray-700\/50:hover {
+  background-color: rgba(55, 65, 81, 0.5) !important;
+}
+
+/* Improved highlights for dark mode */
+.dark mark,
+.dark .bg-yellow-200 {
+  background-color: rgba(253, 224, 71, 0.25) !important;
+  color: rgba(253, 224, 71, 0.9) !important;
+}
+
+/* Improved card shadows for dark mode */
+.dark .shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.2) !important;
+}
+
+.dark .shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -2px rgba(0, 0, 0, 0.1) !important;
+}
+
+.dark .shadow-sm {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Better backdrop blur in dark mode */
+.dark .backdrop-blur-xl,
+.dark .backdrop-blur-md,
+.dark .backdrop-blur-sm {
+  backdrop-filter: blur(16px) saturate(180%) !important;
+}
+
+/* Fix transitioning for colors */
+.transition-colors {
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* Improved dark mode styles for specific elements */
+/* Light panels in dark mode - make them darker */
+.dark .bg-gray-50, 
+.dark .bg-white, 
+.dark .bg-blue-50, 
+.dark .bg-purple-50,
+.dark .bg-amber-50,
+.dark .bg-rose-50,
+.dark .bg-indigo-50,
+.dark .bg-emerald-50,
+.dark .bg-violet-50,
+.dark .bg-cyan-50,
+.dark .bg-green-50 {
+  background-color: rgba(30, 41, 59, 0.6) !important;
+}
+
+/* Fix the highlight boxes with yellow backgrounds */
+.dark mark,
+.dark .bg-yellow-200 {
+  background-color: rgba(234, 179, 8, 0.25) !important;
+  color: rgba(250, 204, 21, 0.95) !important;
+}
+
+/* Fix those specific cards */
+.dark .prose,
+.dark .bg-gradient-to-br.from-rose-50.to-amber-50,
+.dark .bg-gradient-to-r.from-amber-50.to-amber-100,
+.dark .bg-gradient-to-r.from-white.to-rose-50,
+.dark .bg-gradient-to-r.from-white.to-purple-50,
+.dark .bg-gradient-to-r.from-white.to-blue-50,
+.dark .bg-gradient-to-r.from-white.to-indigo-50,
+.dark .bg-white\/80,
+.dark .bg-gray-800\/80 {
+  background-color: rgba(30, 41, 59, 0.6) !important;
+  background-image: none !important;
+}
+
+/* Fix the example search process box */
+.dark .bg-white\/80 .absolute.top-0.bottom-0.left-2\.5.w-0\.5 {
+  opacity: 0.7;
+}
+
+/* Fix the tool boxes */
+.dark .tool-logo {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Fix specific light panels in visualization section */
+.dark .bg-amber-50.to-amber-100,
+.dark .bg-gradient-to-r.from-amber-50.to-amber-100 {
+  background: rgba(30, 41, 59, 0.7) !important;
+}
+
+/* Fix the info cards in visualization section */
+.dark .bg-white\/80.dark\:bg-gray-800\/80.backdrop-blur-sm.rounded-xl.p-6.shadow-md.mb-8,
+.dark .bg-white\/80.dark\:bg-gray-800\/80 {
+  background-color: rgba(31, 41, 55, 0.7) !important;
+  backdrop-filter: blur(6px);
+}
+
+/* Fix the numbered steps in search process */
+.dark .bg-gray-50 ol.space-y-3.relative.ml-6 li div.absolute.left-0 {
+  background-color: rgba(59, 130, 246, 0.7) !important;
+}
+
+/* Fix specific visualization tool cards */
+.dark .rounded-2xl.overflow-hidden.border.border-gray-100.dark\:border-gray-700 {
+  border-color: rgba(55, 65, 81, 0.3) !important;
+}
+
+/* Fix all card backgrounds in visualization section */
+.dark .bg-white.dark\:bg-gray-800.rounded-xl.p-6.border.border-gray-200.dark\:border-gray-700.shadow-sm,
+.dark .bg-white.dark\:bg-gray-800.rounded-xl.p-5.border.border-gray-200.dark\:border-gray-700.shadow-sm {
+  background-color: rgba(31, 41, 55, 0.7) !important;
+}
+
+/* Fix yellow highlighted text sections */
+.dark .bg-yellow-200.dark\:bg-yellow-800\/40.px-1.rounded,
+.dark mark.bg-yellow-200.dark\:bg-yellow-800\/40.px-1.rounded {
+  background-color: rgba(161, 98, 7, 0.4) !important;  
+  color: rgba(253, 224, 71, 0.95) !important;
+}
+
+/* Header and hero section improvements for dark mode */
+.dark body {
+  background-color: #0f172a;
+}
+
+.dark header {
+  background-color: rgba(15, 23, 42, 0.80) !important;
+  backdrop-filter: blur(12px);
+  border-bottom-color: rgba(51, 65, 85, 0.5) !important;
+}
+
+.dark header .rounded-xl {
+  background-color: rgba(30, 41, 59, 0.7) !important;
+  border-color: rgba(51, 65, 85, 0.7) !important;
+}
+
+/* Hero section improvements */
+.dark .relative.overflow-hidden.rounded-2xl.p-2.md\:p-0.bg-gradient-to-r.from-blue-50.to-purple-50 {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%) !important;
+  border: 1px solid rgba(51, 65, 85, 0.5);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark .w-full.h-2.bg-gradient-to-r.from-blue-500.to-purple-600 {
+  background: linear-gradient(to right, #3b82f6, #8b5cf6) !important;
+  height: 3px !important;
+  opacity: 0.9;
+}
+
+.dark .bg-gradient-to-tl.from-blue-400\/10.to-purple-400\/10,
+.dark .bg-gradient-to-tl.from-blue-400\/5.to-purple-400\/5 {
+  opacity: 0.15 !important;
+}
+
+/* Enhance profile image in dark mode */
+.dark .w-20.h-20.md\:w-24.md\:h-24.rounded-full.overflow-hidden.border-2.border-blue-400 {
+  border-color: #60a5fa !important;
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.3) !important;
+}
+
+.dark .absolute.-bottom-1.-right-1.w-8.h-8.bg-blue-500 {
+  background-color: #3b82f6 !important;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.4) !important;
+}
+
+/* Improve text colors and gradients in hero section */
+.dark .text-3xl.md\:text-4xl.font-bold.bg-gradient-to-r.from-blue-600.to-purple-600 {
+  background-image: linear-gradient(to right, #60a5fa, #a78bfa) !important;
+}
+
+.dark .text-blue-600 {
+  color: #60a5fa !important;
+}
+
+.dark .text-purple-600 {
+  color: #a78bfa !important;
+}
+
+.dark .text-emerald-600 {
+  color: #34d399 !important;
+}
+
+/* Improve social media icons */
+.dark .bg-gray-100.dark\:bg-gray-800.p-2.rounded-full {
+  background-color: rgba(30, 41, 59, 0.8) !important;
+  border: 1px solid rgba(51, 65, 85, 0.5);
+}
+
+.dark .dark\:group-hover\:bg-blue-900\/20 {
+  background-color: rgba(30, 58, 138, 0.4) !important;
+}
+
+/* Enhance tag colors */
+.dark .bg-blue-100.text-blue-800.dark\:bg-blue-900\/30,
+.dark .bg-purple-100.text-purple-800.dark\:bg-purple-900\/30,
+.dark .bg-emerald-100.text-emerald-800.dark\:bg-emerald-900\/30 {
+  background-color: rgba(30, 58, 138, 0.4) !important;
+  border: 1px solid rgba(37, 99, 235, 0.3);
+}
+
+.dark .dark\:bg-purple-900\/30 {
+  background-color: rgba(88, 28, 135, 0.4) !important;
+  border: 1px solid rgba(124, 58, 237, 0.3);
+}
+
+.dark .dark\:bg-emerald-900\/30 {
+  background-color: rgba(6, 78, 59, 0.4) !important;
+  border: 1px solid rgba(5, 150, 105, 0.3);
+}
+
+/* Toolkit section improvements for dark mode */
+.dark .bg-white.dark\:bg-gray-800\/90 {
+  background-color: rgba(17, 24, 39, 0.9) !important;
+  backdrop-filter: blur(10px);
+  border-color: rgba(55, 65, 81, 0.5) !important;
+}
+
+.dark .rounded-2xl.overflow-hidden.border.border-gray-100.dark\:border-gray-700 {
+  border-color: rgba(55, 65, 81, 0.5) !important;
+}
+
+/* Improve gradient bars on cards */
+.dark .h-1\.5.bg-gradient-to-r.from-blue-500.to-blue-600 {
+  background: linear-gradient(to right, #3b82f6, #2563eb) !important;
+  height: 3px !important;
+}
+
+.dark .h-1\.5.bg-gradient-to-r.from-purple-500.to-purple-600 {
+  background: linear-gradient(to right, #8b5cf6, #7c3aed) !important;
+  height: 3px !important;
+}
+
+/* Enhance card icons */
+.dark .rounded-xl.flex.items-center.justify-center.bg-blue-50.dark\:bg-blue-900\/30 {
+  background-color: rgba(30, 58, 138, 0.4) !important;
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.15) !important;
+}
+
+.dark .rounded-xl.flex.items-center.justify-center.bg-purple-50.dark\:bg-purple-900\/30 {
+  background-color: rgba(88, 28, 135, 0.4) !important;
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.15) !important;
+}
+
+/* Improve buttons in toolkit section */
+.dark .bg-blue-600.text-white.rounded-xl {
+  background-color: #3b82f6 !important;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.2) !important;
+}
+
+.dark .bg-purple-600.text-white.rounded-xl {
+  background-color: #8b5cf6 !important;
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.2) !important;
+}
+
+.dark .absolute.inset-0.bg-gradient-to-r.from-blue-600.to-blue-500,
+.dark .absolute.inset-0.bg-gradient-to-r.from-purple-600.to-purple-500 {
+  opacity: 0 !important;
+}
+
+.dark .absolute.inset-0.bg-gradient-to-r.from-blue-600.to-blue-500:hover,
+.dark .absolute.inset-0.bg-gradient-to-r.from-purple-600.to-purple-500:hover {
+  opacity: 0.8 !important;
+  background: linear-gradient(to right, #2563eb, #3b82f6) !important;
+}
+
+.dark .absolute.inset-0.bg-gradient-to-r.from-purple-600.to-purple-500:hover {
+  background: linear-gradient(to right, #7c3aed, #8b5cf6) !important;
+}
+
+/* Improve 'Additional Tools' section heading */
+.dark .p-3.rounded-full.bg-gradient-to-r.from-blue-50.to-indigo-50 {
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.4), rgba(49, 46, 129, 0.4)) !important;
+  border: 1px solid rgba(55, 65, 81, 0.5);
+}
+
+/* Improve icon backgrounds in tool cards */
+.dark .p-3.bg-green-50.dark\:bg-green-900\/20,
+.dark .p-3.bg-red-50.dark\:bg-red-900\/20,
+.dark .p-3.bg-purple-50.dark\:bg-purple-900\/20 {
+  background-color: rgba(6, 78, 59, 0.3) !important;
+  border: 1px solid rgba(5, 150, 105, 0.2);
+}
+
+.dark .p-3.bg-red-50.dark\:bg-red-900\/20 {
+  background-color: rgba(127, 29, 29, 0.3) !important;
+  border: 1px solid rgba(185, 28, 28, 0.2);
+}
+
+.dark .p-3.bg-purple-50.dark\:bg-purple-900\/20 {
+  background-color: rgba(88, 28, 135, 0.3) !important;
+  border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+/* Improved base dark mode colors */
+.dark {
+  --background: 215 25% 10%;
+  --foreground: 210 40% 98%;
+  --card: 215 28% 12%;
+  --card-foreground: 210 40% 98%;
+  --popover: 215 28% 12%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 217.2 91.2% 59.8%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 224.3 76.3% 48%;
+}
+
+/* Enhanced typography for dark mode */
+.dark p {
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: rgba(248, 250, 252, 0.95);
+}
+
+.dark .text-gray-900 {
+  color: #f8fafc !important;
+}
+
+.dark .text-gray-800 {
+  color: #f1f5f9 !important;
+}
+
+.dark .text-gray-700 {
+  color: #e2e8f0 !important;
+}
+
+.dark .text-gray-600 {
+  color: #cbd5e1 !important;
+}
+
+.dark .text-gray-500 {
+  color: #94a3b8 !important;
+}
+
+.dark .text-gray-400 {
+  color: #cbd5e1 !important;
+}
+
+.dark .text-gray-300 {
+  color: #e2e8f0 !important;
+}
+
+.dark .text-gray-200 {
+  color: #f1f5f9 !important;
+}
+
+.dark .text-gray-100 {
+  color: #f8fafc !important;
+}
+
+/* Improve dark mode backgrounds */
+.dark body {
+  background-color: #0f172a;
+}
+
+.dark .bg-gray-900 {
+  background-color: #0f172a !important;
+}
+
+.dark .bg-gray-800 {
+  background-color: #1e293b !important;
+}
+
+.dark .bg-gray-800\/90 {
+  background-color: rgba(30, 41, 59, 0.9) !important;
+}
+
+.dark .bg-gray-800\/80 {
+  background-color: rgba(30, 41, 59, 0.8) !important;
+}
+
+.dark .bg-gray-900\/90 {
+  background-color: rgba(15, 23, 42, 0.9) !important;
+}
+
+.dark .bg-gray-900\/60 {
+  background-color: rgba(15, 23, 42, 0.6) !important;
+}
+
+/* Enhanced specific section gradients */
+.dark .bg-gradient-to-br.from-gray-50.to-blue-50,
+.dark .bg-gradient-to-br.from-gray-50.to-indigo-50,
+.dark .bg-gradient-to-br.from-gray-50.to-purple-50,
+.dark .bg-gradient-to-br.from-gray-50.to-amber-50,
+.dark .bg-gradient-to-br.from-gray-50.to-emerald-50 {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.9)) !important;
+  border: 1px solid rgba(51, 65, 85, 0.5);
+}
+
+/* Improve Deep Research Highlights Section in Dark Mode */
+.dark .bg-gradient-to-br.from-blue-50.to-indigo-50 {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.9)) !important;
+  border: 1px solid rgba(37, 99, 235, 0.3);
+}
+
+/* Improve the yellow lightbulb icon container */
+.dark .fas.fa-lightbulb.text-yellow-500 {
+  color: #fbbf24 !important;
+}
+
+/* Improve text highlight in the Deep Research section */
+.dark mark.bg-yellow-200.dark\:bg-yellow-800\/40 {
+  background-color: rgba(146, 64, 14, 0.5) !important;
+  color: #fcd34d !important;
+  padding: 0.1em 0.4em;
+  border-radius: 0.25rem;
+  border: 1px solid rgba(217, 119, 6, 0.3);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Improve the card style for the research examples */
+.dark .flex.flex-col.bg-white.dark\:bg-gray-800.rounded-lg.overflow-hidden.border.border-blue-200,
+.dark .flex.flex-col.bg-white.dark\:bg-gray-800.rounded-lg.overflow-hidden.border.border-green-200 {
+  background-color: rgba(30, 41, 59, 0.7) !important;
+  border-color: rgba(37, 99, 235, 0.3) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -2px rgba(0, 0, 0, 0.2) !important;
+}
+
+.dark .flex.flex-col.bg-white.dark\:bg-gray-800.rounded-lg.overflow-hidden.border.border-green-200 {
+  border-color: rgba(16, 185, 129, 0.3) !important;
+}
+
+/* Improve graduation heading background */
+.dark .bg-gradient-to-r.from-blue-400.to-blue-500 {
+  background: linear-gradient(to right, #3b82f6, #2563eb) !important;
+}
+
+/* Improve Canada PR heading background */
+.dark .bg-gradient-to-r.from-green-400.to-green-500 {
+  background: linear-gradient(to right, #10b981, #059669) !important;
+}
+
+/* Improve caption text */
+.dark .text-sm.italic.text-gray-600.dark\:text-gray-400 {
+  color: #94a3b8 !important;
+}
+
+.dark .text-sm.text-gray-800.dark\:text-gray-300 {
+  color: #e2e8f0 !important;
+}
+
+/* Improve Prompt Enhancement Section in Dark Mode */
+
+/* Enhance section background and border */
+.dark .bg-gradient-to-br.from-gray-50.to-indigo-50.dark\:from-gray-900.dark\:to-indigo-900\/30 {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.9)) !important;
+  border: 1px solid rgba(79, 70, 229, 0.3);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Enhance icon container */
+.dark .p-3.bg-indigo-100.dark\:bg-indigo-900\/50 {
+  background-color: rgba(67, 56, 202, 0.3) !important;
+  border: 1px solid rgba(79, 70, 229, 0.3);
+  box-shadow: 0 0 15px rgba(79, 70, 229, 0.2);
+}
+
+.dark .fas.fa-magic.text-indigo-600.dark\:text-indigo-400 {
+  color: #818cf8 !important;
+}
+
+/* Improve KEY INSIGHT box */
+.dark .relative.mt-6.bg-gradient-to-r.from-indigo-50.to-purple-50 {
+  background: linear-gradient(to right, rgba(49, 46, 129, 0.4), rgba(76, 29, 149, 0.4)) !important;
+  border-left-color: #6366f1 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 0.5rem !important;
+  backdrop-filter: blur(4px);
+}
+
+/* Make the KEY INSIGHT label more vibrant */
+.dark .absolute.-top-3.left-4.bg-yellow-400.text-yellow-900 {
+  background-color: #f59e0b !important;
+  color: #1e3a8a !important;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  border: 1px solid #f59e0b;
+}
+
+/* Enhance the insight text */
+.dark .font-bold.text-indigo-700.dark\:text-indigo-300 {
+  color: #a5b4fc !important;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+}
+
+/* Additional mobile enhancements */
+@media (max-width: 768px) {
+  /* ... existing mobile styles ... */
+  
+  /* Fix tool cards with wrapping issues */
+  .flex.justify-between.items-center {
+    gap: 0.75rem;
+  }
+  
+  /* Make tool cards more readable on mobile */
+  .flex.justify-between.items-center.flex-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .flex.justify-between.items-center.flex-wrap a {
+    margin-top: 0.5rem;
+    align-self: flex-start;
+  }
+  
+  /* Fix section headings on mobile */
+  .text-3xl.font-bold.mb-8 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Fix spacing in hero section */
+  .relative.p-6.md\:p-8.flex.flex-col.items-center.md\:flex-row.md\:justify-between.gap-6 {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  /* Better fit hero content on mobile */
+  .text-center.md\:text-left {
+    text-align: left;
+  }
+  
+  /* Fix social links positioning */
+  .flex.items-center.justify-center.md\:justify-start.gap-5 {
+    justify-content: flex-start;
+    gap: 0.75rem;
+  }
+  
+  /* Fix gaps in card grids */
+  .grid.grid-cols-1.md\:grid-cols-2.gap-8,
+  .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3.gap-8 {
+    gap: 1rem;
+  }
+  
+  /* Fix horizontal scrolling issues */
+  .container {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Improve tool icon display on mobile */
+  .flex.items-center.p-3.hover\:bg-gray-50 {
+    padding: 0.5rem;
+  }
+  
+  /* Fix spacing in cards with icons */
+  .p-3.bg-green-50.dark\:bg-green-900\/20.rounded-xl,
+  .p-3.bg-red-50.dark\:bg-red-900\/20.rounded-xl,
+  .p-3.bg-purple-50.dark\:bg-purple-900\/20.rounded-xl,
+  .p-3.bg-blue-50.dark\:bg-blue-900\/30.rounded-xl,
+  .p-3.bg-purple-50.dark\:bg-purple-900\/30.rounded-xl {
+    padding: 0.5rem;
+  }
+  
+  /* Fix spacing in grid item containers */
+  .grid.grid-cols-2.sm\:grid-cols-3.md\:grid-cols-6.gap-6 > a {
+    padding: 0.75rem !important;
+  }
+  
+  /* Fix oversized image in tool cards */
+  .w-16.h-16.bg-white.dark\:bg-gray-800 img {
+    width: 75%;
+    height: 75%;
+  }
+  
+  /* Fix wrapping in navigation */
+  .flex.flex-wrap.gap-3.mt-6 {
+    gap: 0.5rem;
+  }
+  
+  /* Fix gallery image aspect ratio */
+  .relative.rounded-xl.overflow-hidden.aspect-video {
+    aspect-ratio: 16/9;
+    height: auto;
+  }
+  
+  /* Make images better fit their containers */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Further adjustments for very small screens */
+@media (max-width: 374px) {
+  /* ... existing small screen styles ... */
+  
+  /* Fix tiny button text */
+  .text-base.font-medium {
+    font-size: 0.875rem;
+  }
+  
+  /* Fix icon spacing in buttons */
+  .fas.fa-external-link-alt.ml-2,
+  .fas.fa-file-alt.mr-2 {
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+  }
+  
+  /* Reduce logo size for tiny screens */
+  .w-12.h-12.rounded-xl {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  /* Fix navigation icon size */
+  .w-10.h-10.rounded-xl,
+  .w-10.h-10.rounded-full {
+    width: 2rem !important;
+    height: 2rem !important;
+  }
+  
+  /* Fix tool logos on tiny screens */
+  .h-16.w-16.rounded-xl {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.5rem;
+  }
+  
+  .h-10.w-10.rounded-lg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  /* Smaller text for tiny screens */
+  .text-lg {
+    font-size: 0.875rem;
+  }
+}
+
+/* Fix for logo images to prevent distortion */
+.tool-logo img,
+.logo-chatgpt img,
+.logo-gemini img,
+.logo-claude img,
+.logo-perplexity img,
+.logo-grok img,
+.logo-cursor img,
+.logo-windsurf img,
+.logo-lovable img,
+.logo-replit img,
+.logo-v0 img,
+.logo-bolt img,
+.logo-firebase img,
+.logo-notion img,
+.logo-arc img,
+.rounded-lg img,
+.rounded-xl img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: inherit;
+}
+
+/* Ensure all icon containers maintain aspect ratio */
+.tool-logo,
+.w-16.h-16,
+.h-16.w-16,
+.w-12.h-12,
+.h-12.w-12,
+.w-10.h-10,
+.h-10.w-10,
+.w-8.h-8,
+.h-8.w-8 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Ensure profile images display properly */
+.rounded-full.overflow-hidden img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Fix for card layouts to prevent overflow */
+.card-hover,
+.bg-white.dark\:bg-gray-800 {
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  /* ... existing mobile styles ... */
+  
+  /* Improve model card readability on mobile */
+  .whitespace-normal {
+    white-space: normal !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+  
+  /* Fix for long texts in model cards */
+  .text-2xl.font-semibold {
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+  
+  /* Better spacing in tool card headers */
+  .flex.items-center.mb-6 {
+    align-items: flex-start;
+  }
+  
+  /* Consistent image containers for tool logos */
+  .h-16.w-16.rounded-xl,
+  .w-16.h-16.rounded-xl,
+  .h-16.w-16.rounded-2xl,
+  .w-16.h-16.rounded-2xl {
+    width: 3rem;
+    height: 3rem;
+    min-width: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Ensure all images within containers scale correctly */
+  .h-16.w-16 img,
+  .w-16.h-16 img,
+  .h-10.w-10 img,
+  .w-10.w-10 img,
+  .rounded-lg img,
+  .rounded-xl img,
+  .tool-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  /* Fix width issues in vertical card layouts */
+  .flex.flex-col.items-center.text-center {
+    width: 100%;
+  }
+  
+  /* Fix gallery image display */
+  .relative.rounded-xl.overflow-hidden.aspect-video img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* Specific fixes for image spacing on mobile */
+@media (max-width: 374px) {
+  /* ... existing small screen styles ... */
+  
+  /* Tighter image containers for tiny screens */
+  .h-16.w-16.rounded-xl,
+  .w-16.h-16.rounded-xl,
+  .h-16.w-16.rounded-2xl,
+  .w-16.h-16.rounded-2xl {
+    width: 2.5rem;
+    height: 2.5rem;
+    min-width: 2.5rem;
+    margin-right: 0.5rem;
+  }
+  
+  .h-10.w-10,
+  .w-10.w-10 {
+    width: 1.5rem;
+    height: 1.5rem;
+    min-width: 1.5rem;
+  }
+}
+
+/* Mobile-specific layout improvements based on screenshots */
+@media (max-width: 768px) {
+  /* ... existing mobile styles ... */
+  
+  /* 1. Fix "Visit" button alignment - keep on same line with content labels */
+  .flex.justify-between.items-center.flex-wrap {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+  
+  /* Adjust button and label containers */
+  .bg-blue-50.text-blue-800,
+  .bg-purple-50.text-purple-800 {
+    padding: 0.35rem 0.75rem !important;
+    font-size: 0.875rem;
+  }
+  
+  /* Fix the visit buttons to match screenshot */
+  .relative.overflow-hidden.inline-flex.items-center.px-5.py-2\.5 {
+    padding: 0.5rem 0.75rem !important;
+    margin-top: 0 !important;
+    font-size: 0.875rem;
+  }
+  
+  /* 2. Increase height for Quick Fact-Checking card */
+  .bg-white.dark\:bg-gray-800.rounded-2xl.p-4.border.border-gray-100.dark\:border-gray-700 {
+    padding: 1.25rem !important;
+    margin-bottom: 1rem;
+  }
+  
+  /* Add extra padding and style for the Quick Fact-Checking card with orange border */
+  div[class*="Quick Fact-Checking"],
+  div:has(h3:contains("Quick Fact-Checking")) {
+    padding: 1.25rem !important;
+    min-height: 12rem;
+    border: 1px solid #f97316 !important;
+  }
+  
+  /* Style for the Quick Fact-Checking heading */
+  div:has(h3:contains("Quick Fact-Checking")) h3,
+  h3:contains("Quick Fact-Checking") {
+    font-size: 1.25rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  /* 3. Decrease icon sizes in research examples */
+  .rounded-lg.mr-4 img,
+  .bg-blue-100.dark\:bg-blue-900\/40.p-3.rounded-lg.mr-4 img,
+  .bg-purple-100.dark\:bg-purple-900\/40.p-3.rounded-lg.mr-4 img {
+    width: 2rem !important;
+    height: 2rem !important;
+    object-fit: contain;
+  }
+  
+  /* Adjust container sizes to match */
+  .bg-blue-100.dark\:bg-blue-900\/40.p-3.rounded-lg.mr-4,
+  .bg-purple-100.dark\:bg-purple-900\/40.p-3.rounded-lg.mr-4 {
+    padding: 0.5rem !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    min-width: 3rem !important;
+  }
+  
+  /* 4. Improve Language Learning Applications layout */
+  div:has(h3:contains("Language Learning")),
+  div[class*="Language Learning"] {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1rem !important;
+  }
+  
+  /* Fix the IELTS Speaking Simulator card */
+  a:has(h5:contains("IELTS Speaking Simulator")),
+  a[class*="IELTS Speaking Simulator"] {
+    padding: 1rem !important;
+    margin-top: 1rem;
+    width: 100% !important;
+    border-radius: 0.75rem;
+  }
+  
+  /* Adjust the IELTS icon */
+  a:has(h5:contains("IELTS Speaking Simulator")) img,
+  a[class*="IELTS Speaking Simulator"] img {
+    width: 3rem !important;
+    height: 3rem !important;
+  }
+  
+  /* Specific fixes for all tool cards to match screenshots */
+  .space-y-3 a,
+  .space-y-2 a {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 0.5rem !important;
+  }
+  
+  /* Fix Grok/Perplexity spacing */
+  .tool-logo.logo-grok,
+  .tool-logo.logo-perplexity {
+    margin-right: 0.75rem;
+  }
+  
+  /* Adjust all mobile card padding */
+  .p-8, .p-6, .p-5, .p-4 {
+    padding: 1rem !important;
+  }
+  
+  /* Improve vertical spacing between cards */
+  .space-y-3 > *, .space-y-4 > * {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Fix the rating/conversation stats for IELTS */
+  .flex.items-center.gap-6 {
+    gap: 1rem !important;
+  }
+  
+  /* Improve spacing inside the language learning section */
+  div:has(h3:contains("Language Learning")) p {
+    margin-bottom: 0.75rem;
+  }
+}
+
+/* Additional fixes for specific layout observed in screenshots */
+@media (max-width: 480px) {
+  /* Even more specific button alignment for smaller screens */
+  .flex.justify-between.items-center.flex-wrap .bg-blue-50,
+  .flex.justify-between.items-center.flex-wrap .bg-purple-50 {
+    margin-right: auto;
+  }
+  
+  .flex.justify-between.items-center.flex-wrap a {
+    margin-left: auto;
+  }
+  
+  /* Make buttons more compact */
+  .flex.justify-between.items-center.flex-wrap {
+    gap: 0.5rem;
+  }
+  
+  /* Specific fixes for Quick Fact-Checking section */
+  div:has(h3:contains("Quick Fact-Checking")) .space-y-2 {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  /* Adjust Research examples to match screenshots */
+  a[href*="chatgpt.com/share"],
+  a[href*="perplexity.ai/search"] {
+    padding: 0.75rem !important;
+  }
+  
+  a[href*="chatgpt.com/share"] .p-6,
+  a[href*="perplexity.ai/search"] .p-6 {
+    padding: 0.5rem !important;
+  }
+  
+  /* Fix research example quote style */
+  .pl-4.border-l-2 {
+    padding-left: 0.5rem !important;
+    margin-top: 0.5rem !important;
+  }
+  
+  /* Improve IELTS card based on screenshot */
+  a:has(h5:contains("IELTS Speaking Simulator")),
+  a[class*="IELTS Speaking Simulator"] {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem !important;
+    gap: 1rem;
+  }
+  
+  /* Better stats display */
+  a:has(h5:contains("IELTS Speaking Simulator")) .font-bold,
+  a[class*="IELTS Speaking Simulator"] .font-bold {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+}
+
+/* Additional targeted fixes for screenshot matching */
+
+/* 1. Explicitly style "Visit" buttons for model cards to align properly */
+.bg-blue-600.text-white.rounded-xl,
+.bg-purple-600.text-white.rounded-xl {
+  display: inline-flex;
+  white-space: nowrap;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+/* Style content labels for better spacing */
+.text-blue-800.dark\:text-blue-300.px-4.py-2.rounded-full,
+.text-purple-800.dark\:text-purple-300.px-4.py-2.rounded-full {
+  white-space: nowrap;
+}
+
+/* 2. Fix quick fact-checking card with orange border */
+.quick-fact-checking,
+.bg-white.dark\:bg-gray-800.rounded-2xl.p-4.border.border-orange-400 {
+  border: 2px solid #f97316 !important;
+  border-radius: 0.75rem !important;
+}
+
+/* 3. Research examples icon size fixes */
+.bg-blue-100.dark\:bg-blue-900\/40.p-3.rounded-lg.mr-4,
+.bg-purple-100.dark\:bg-purple-900\/40.p-3.rounded-lg.mr-4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+}
+
+.bg-blue-100.dark\:bg-blue-900\/40.p-3.rounded-lg.mr-4 img,
+.bg-purple-100.dark\:bg-purple-900\/40.p-3.rounded-lg.mr-4 img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+}
+
+/* 4. Language Learning applications section styling */
+.language-learning-section,
+.bg-white.dark\:bg-gray-800.rounded-2xl.p-6.border.border-gray-100.dark\:border-gray-700 {
+  padding: 1.25rem;
+}
+
+.ielts-simulator-card,
+a[href*="ielts"] {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  gap: 1rem;
+}
+
+.ielts-simulator-card img,
+a[href*="ielts"] img {
+  width: 3.5rem;
+  height: 3.5rem;
+  object-fit: contain;
+}
+
+/* Mobile specific overrides based on screenshots */
+@media (max-width: 768px) {
+  /* Make Quick Fact-Checking border more obvious */
+  .quick-fact-checking,
+  .bg-white.dark\:bg-gray-800.rounded-2xl.p-4.border.border-orange-400 {
+    border: 2px solid #f97316 !important;
+    min-height: 10rem;
+  }
+  
+  /* Fix buttons on mobile to stay on same line */
+  .flex.justify-between.items-center {
+    display: flex;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+  
+  /* Ensure button and label don't wrap to different lines */
+  .flex.justify-between.items-center .flex-shrink-0 {
+    margin-right: auto;
+  }
+  
+  /* Fix ChatGPT research example icon size */
+  .bg-blue-100.dark\:bg-blue-900\/40.p-3.rounded-lg.mr-4,
+  .bg-purple-100.dark\:bg-purple-900\/40.p-3.rounded-lg.mr-4 {
+    width: 3rem !important;
+    height: 3rem !important;
+    min-width: 3rem !important;
+    padding: 0.5rem !important;
+  }
+  
+  /* Fix IELTS simulator card */
+  .ielts-simulator-card,
+  a[href*="ielts"] {
+    padding: 0.75rem !important;
+  }
+  
+  .ielts-simulator-card img,
+  a[href*="ielts"] img {
+    width: 3rem !important;
+    height: 3rem !important;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  /* Even tighter spacing */
+  .bg-blue-100.dark\:bg-blue-900\/40.p-3.rounded-lg.mr-4,
+  .bg-purple-100.dark\:bg-purple-900\/40.p-3.rounded-lg.mr-4 {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    min-width: 2.5rem !important;
+    margin-right: 0.5rem !important;
+  }
+  
+  .bg-blue-100.dark\:bg-blue-900\/40.p-3.rounded-lg.mr-4 img,
+  .bg-purple-100.dark\:bg-purple-900\/40.p-3.rounded-lg.mr-4 img {
+    width: 1.75rem !important;
+    height: 1.75rem !important;
+  }
+  
+  /* Ensure border is visible */
+  .border-orange-400 {
+    border-width: 2px !important;
+  }
+}
+
+/* Critical fixes for specific elements as seen in the screenshots */
+
+/* ChatGPT and Gemini Visit button fixes */
+.bg-blue-600.text-white.rounded-xl,
+.bg-purple-600.text-white.rounded-xl {
+  padding: 0.5rem 1rem !important;
+  min-width: 80px;
+  text-align: center;
+}
+
+/* For orange border around Quick Fact-Checking */
+.card-hover.flex-1.quick-fact-checking,
+.bg-white.dark\:bg-gray-800.rounded-2xl.p-4.border.border-orange-400 {
+  border: 2px solid #f97316 !important;
+  border-radius: 0.75rem !important;
+}
+
+/* Fix Research Example cards - specifically for ChatGPT icon */
+.bg-blue-100.dark\:bg-blue-900\/40.p-2.rounded-lg.mr-4.w-12.h-12,
+.bg-blue-100.dark\:bg-blue-900\/40.p-3.rounded-lg.mr-4 {
+  width: 3rem !important;
+  height: 3rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Important overrides for mobile view */
+@media (max-width: 768px) {
+  /* Most critical fix - keep buttons on same line for model cards */
+  div.p-8 .flex.justify-between.items-center,
+  div.p-8 .flex.justify-between.items-center.flex-wrap {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    flex-wrap: nowrap !important;
+  }
+  
+  /* Fix Content/Visit button positioning */
+  .flex.justify-between.items-center .bg-blue-50,
+  .flex.justify-between.items-center .bg-purple-50 {
+    font-size: 0.875rem !important;
+    padding: 0.35rem 0.75rem !important;
+    white-space: nowrap !important;
+  }
+  
+  /* Fix Language Learning section */
+  .p-8 .language-learning-section p,
+  div:has(h3:contains("Language Learning Applications")) p {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  /* IELTS simulator card styling */
+  .ielts-simulator-card,
+  a:has(h5:contains("IELTS Speaking Simulator")) {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    padding: 1rem !important;
+    margin-top: 1rem !important;
+  }
+  
+  /* Fix very small screens */
+  @media (max-width: 374px) {
+    .flex.justify-between.items-center.flex-wrap {
+      gap: 0.35rem !important;
+    }
+    
+    .flex.justify-between.items-center .bg-blue-50,
+    .flex.justify-between.items-center .bg-purple-50 {
+      font-size: 0.8rem !important;
+      padding: 0.25rem 0.5rem !important;
+    }
+    
+    .bg-blue-600.text-white.rounded-xl span,
+    .bg-purple-600.text-white.rounded-xl span {
+      font-size: 0.8rem !important;
+    }
+  }
+}
+
+/* Fixes based on new feedback */
+
+/* 1. Fix "English Translator GPT" and "Email Refiner GPT" icon sizes for desktop */
+a[href*="english-translator"] img,
+a[href*="email-refiner"] img {
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: contain;
+}
+
+/* 2. Fix "Google AI Studio (Gemini 2.5 Pro)" to display on one line in desktop */
+@media (min-width: 769px) {
+  .text-2xl.font-semibold.whitespace-normal,
+  .text-2xl.font-semibold.group-hover\:text-purple-600.dark\:group-hover\:text-purple-400.transition-colors.dark\:text-gray-100.whitespace-normal {
+    white-space: nowrap !important;
+  }
+}
+
+/* 3. Add consistent card boundaries for all cards in "Additional Tools by Use Case" */
+.bg-white.dark\:bg-gray-800.rounded-2xl.p-6.border.border-gray-100.dark\:border-gray-700.shadow-sm.hover\:shadow-md.transition-all.card-hover,
+.bg-white.dark\:bg-gray-800.rounded-2xl.p-4.border.border-gray-100.dark\:border-gray-700.shadow-sm.hover\:shadow-md.transition-all.card-hover {
+  border: 2px solid #fed7aa !important; /* Light orange border */
+  border-radius: 0.75rem !important;
+}
+
+/* Add colored borders to cards based on their icons */
+.card-hover:has(.fa-search) {
+  border-color: #22c55e !important; /* Green border for Search */
+}
+
+.card-hover:has(.fa-check-circle) {
+  border-color: #f97316 !important; /* Orange border for Fact-Checking */
+}
+
+.card-hover:has(.fa-edit) {
+  border-color: #8b5cf6 !important; /* Purple border for Proofread */
+}
+
+.card-hover:has(.fa-pen-fancy),
+.card-hover:has(.fa-pen-nib) {
+  border-color: #06b6d4 !important; /* Cyan border for Writing */
+}
+
+.card-hover:has(.fa-microphone) {
+  border-color: #a855f7 !important; /* Violet border for Voice */
+}
+
+.card-hover:has(.fa-code) {
+  border-color: #10b981 !important; /* Emerald border for Coding */
+}
+
+.card-hover:has(.fa-image) {
+  border-color: #ec4899 !important; /* Pink border for Image */
+}
+
+.card-hover:has(.fa-file-alt) {
+  border-color: #eab308 !important; /* Yellow border for Document */
+}
+
+.card-hover:has(.fa-graduation-cap) {
+  border-color: #3b82f6 !important; /* Blue border for Learning */
+}
+
+/* 4. Increase height of Quick Fact-Checking card on mobile */
+@media (max-width: 768px) {
+  .quick-fact-checking,
+  .card-hover:has(.fa-check-circle) {
+    min-height: 14rem !important; /* Increased height */
+  }
+  
+  /* 5. Improve Language Learning Applications display on mobile */
+  .language-learning-section,
+  div:has(h4:contains("Language Learning Applications")),
+  .card-hover:has(.fa-graduation-cap) { /* MAIN Language Learning card */
+    padding: 1.5rem 1rem !important;
+    border-color: #fed7aa !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    min-height: 22rem !important; /* Adjusted min-height */
+  }
+
+  div:has(h4:contains("Language Learning Applications")) { /* Text block (containing H3 and P) styling */
+    flex-grow: 1 !important;
+    min-width: 0; /* Allows the item to shrink and prevents text overflow issues */
+    width: 100% !important; /* Make the description wrapper span the full line */
+  }
+
+  div:has(h4:contains("Language Learning Applications")) p { /* Paragraph inside text block */
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.5rem !important;
+    width: 100% !important; /* Ensure paragraph takes full width of its parent */
+  }
+
+  .ielts-simulator-card,
+  a[href*="ielts-speaking-simulator"] { /* IELTS card */
+    display: flex !important;
+    align-items: center !important;
+    padding: 0.75rem !important;           /* Adjusted padding */
+    border-radius: 0.75rem !important;
+    gap: 0.75rem !important;                /* Adjusted gap */
+    background-color: white !important;
+    margin-top: auto !important;
+    width: 100% !important;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  /* Ensure the inner description/card wrapper spans full width */
+  .language-learning-section > div {
+    width: 100% !important;
+  }
+
+  .dark .ielts-simulator-card,
+  .dark a[href*="ielts-speaking-simulator"] {
+    background-color: rgba(31, 41, 55, 0.85) !important;
+    border-color: rgba(55, 65, 81, 0.7) !important;
+  }
+
+  a[href*="ielts-speaking-simulator"] img { /* IELTS image */
+    width: 3rem !important;            /* Adjusted width */
+    height: 3rem !important;           /* Adjusted height */
+    object-fit: contain !important;
+    margin-right: 0.5rem !important;    /* Adjusted margin-right */
+    border-radius: 0.5rem;
+  }
+
+  a[href*="ielts-speaking-simulator"] > div { /* IELTS text block (title + stats) */
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      flex-grow: 1 !important;
+      text-align: left;
+      min-width: 0;
+  }
+
+  a[href*="ielts-speaking-simulator"] h5 { /* IELTS title */
+      margin-bottom: 0.25rem !important; /* Adjusted margin-bottom */
+      font-size: 1.1rem !important;
+  }
+
+  a[href*="ielts-speaking-simulator"] .flex.items-center.gap-6 { /* IELTS stats container */
+      gap: 0.75rem !important;                /* Adjusted gap */
+      margin-top: 0.25rem !important;    /* Adjusted margin-top */
+      align-items: center;
+  }
+
+  a[href*="ielts-speaking-simulator"] .flex.items-center.gap-6 > span { /* IELTS stats text */
+    font-size: 0.85rem !important;                 /* Adjusted font-size */
+  }
+
+  a[href*="ielts-speaking-simulator"] > span.ml-auto { /* IELTS button */
+      padding: 0.5rem 0.75rem !important;   /* Adjusted padding */
+      font-size: 0.8rem !important;       /* Adjusted font-size */
+      font-weight: 500;
+      border-radius: 0.5rem;
+      background-color: #4f46e5;
+      color: white !important;
+      text-align: center;
+      line-height: 1.2;
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      height: fit-content;
+  }
+  .dark a[href*="ielts-speaking-simulator"] > span.ml-auto {
+    background-color: #6366f1;
+  }
+  a[href*="ielts-speaking-simulator"] > span.ml-auto .fas.fa-arrow-right {
+    margin-left: 0.25rem !important;              /* Adjusted margin-left */
+  }
+
+  /* 6. Decrease Cursor icon size in mobile version */
+  .cursor-pointer {
+    font-size: 1.25rem !important;
+  }
+}
+
+/* Stack icon and allow full-width description in Language Learning card */
+.card-hover:has(.fa-graduation-cap) .flex.items-center.mb-6 {
+  flex-direction: column !important;
+  align-items: flex-start !important;
+}
+.card-hover:has(.fa-graduation-cap) .flex.items-center.mb-6 > div:last-child {
+  width: 100% !important;
+}
+/* Ensure styles work even with CSS selector limitations */
+.tool-logo-container {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+}
+
+.tool-logo-container img {
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+
+/* Ensure Google AI Studio title doesn't break on desktop */
+@media (min-width: 769px) {
+  .gemini-title {
+    white-space: nowrap !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Ensure full Gemini title wraps and scales on mobile */
+  .gemini-title {
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    font-size: 1.125rem !important;
+    line-height: 1.2 !important;
+  }
+}
+
+/* Make card borders more visible */
+.card-with-border {
+  border-width: 2px !important;
+  border-color: #fed7aa !important; /* Ensure light orange border for this class too */
+}
+/* Custom mobile fix: Ensure Language Learning card inner wrapper is full width */
+@media (max-width: 768px) {
+  /* Ensure the inner content wrapper in the Language Learning card spans full width */
+  .language-learning-section > div > .p-8 {
+    width: 100% !important;
+  }
+}
