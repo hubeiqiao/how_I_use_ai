@@ -1,0 +1,21 @@
+/* css/mobile-scroll.css */
+
+/* Improve scrolling performance and feel on touch devices */
+body {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  touch-action: manipulation;
+}
+
+/* On mobile devices, remove the performance-intensive blur effect from the header */
+@media (max-width: 768px) {
+  header.sticky {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background-color: rgba(255, 255, 255, 0.85); /* Fallback for dark:bg-gray-900/90 */
+  }
+
+  .dark header.sticky {
+    background-color: rgba(17, 24, 39, 0.9); /* Equivalent to dark:bg-gray-900/90 */
+  }
+} 

@@ -3,32 +3,17 @@ function _applyTheme(isDark) {
     document.documentElement.classList.add('dark');
     document.body.classList.add('bg-gray-950', 'text-gray-100');
     document.body.classList.remove('bg-white', 'text-gray-900');
-    localStorage.setItem('theme', 'dark');
   } else {
     document.documentElement.classList.remove('dark');
     document.body.classList.add('bg-white', 'text-gray-900');
     document.body.classList.remove('bg-gray-950', 'text-gray-100');
-    localStorage.setItem('theme', 'light');
   }
 }
 
-window.toggleTheme = function() {
-  const currentlyDark = document.documentElement.classList.contains('dark');
-  _applyTheme(!currentlyDark);
-};
-
-// Initial theme setup
-// Check for saved theme preference or use system preference
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') {
-  _applyTheme(true);
-} else if (savedTheme === 'light') {
-  _applyTheme(false);
-} else {
-  // If no saved preference, use system preference
-  const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  _applyTheme(prefersDarkScheme);
-}
+// Set theme based on system preference
+const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+_applyTheme(prefersDarkScheme.matches);
+prefersDarkScheme.addEventListener('change', (e) => _applyTheme(e.matches));
 
 document.addEventListener('DOMContentLoaded', function() {
   // Fix model cards
