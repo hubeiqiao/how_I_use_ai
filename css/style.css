@@ -2104,3 +2104,180 @@ a[href*="email-refiner"] img {
     width: 100% !important;
   }
 }
+
+/* Custom fix for vertically centering single-line card titles on mobile */
+@media (max-width: 768px) {
+  div[class*="gap-8"] h3.font-semibold {
+    display: flex;
+    align-items: center;
+    min-height: 3rem; /* h-12, matching icon height */
+  }
+
+  div[class*="gap-8"] .flex.items-center.gap-5 {
+    align-items: center;
+  }
+
+  div[class*="gap-8"] h3.font-semibold {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+
+  /* Title centering for sections like Writing, Visualization, etc. */
+  .flex.items-center > h3.text-2xl.font-semibold,
+  .flex.items-center > h4.text-2xl.font-medium,
+  h4.text-lg.font-medium.flex.items-center {
+    display: flex;
+    align-items: center;
+    min-height: 3.25rem; /* Matches icon container with p-3 + text-xl icon */
+    transition: all 0.3s ease-in-out; /* Restore touch animation */
+  }
+}
+
+@media (max-width: 374px) {
+  div[class*="gap-8"] h3.font-semibold {
+    min-height: 2.5rem; /* h-10, matching icon height on small screens */
+  }
+}
+
+/* Fix font size inconsistencies for labels across all sections */
+
+/* Standardize all content/feature labels to use text-sm (0.875rem) */
+.bg-blue-50.text-blue-800.px-4.py-2.rounded-full,
+.bg-purple-50.text-purple-800.px-4.py-2.rounded-full,
+.bg-violet-50.text-violet-800.px-4.py-2.rounded-full,
+.bg-green-50.text-green-800.px-4.py-2.rounded-full,
+.bg-red-50.text-red-800.px-4.py-2.rounded-full,
+.bg-emerald-50.text-emerald-800.px-4.py-2.rounded-full,
+.bg-amber-50.text-amber-800.px-4.py-2.rounded-full,
+.bg-cyan-50.text-cyan-800.px-4.py-2.rounded-full,
+.bg-rose-50.text-rose-800.px-4.py-2.rounded-full,
+span[class*="bg-"][class*="text-"][class*="rounded-full"][class*="font-medium"] {
+  font-size: 0.875rem !important; /* text-sm */
+}
+
+/* Dark mode variants */
+.dark .bg-blue-900\/40.text-blue-300.px-4.py-2.rounded-full,
+.dark .bg-purple-900\/40.text-purple-300.px-4.py-2.rounded-full,
+.dark .bg-violet-900\/40.text-violet-300.px-4.py-2.rounded-full,
+.dark .bg-green-900\/40.text-green-300.px-4.py-2.rounded-full,
+.dark .bg-red-900\/40.text-red-300.px-4.py-2.rounded-full,
+.dark .bg-emerald-900\/40.text-emerald-300.px-4.py-2.rounded-full,
+.dark .bg-amber-900\/40.text-amber-300.px-4.py-2.rounded-full,
+.dark .bg-cyan-900\/40.text-cyan-300.px-4.py-2.rounded-full,
+.dark .bg-rose-900\/40.text-rose-300.px-4.py-2.rounded-full,
+.dark span[class*="bg-"][class*="text-"][class*="rounded-full"][class*="font-medium"] {
+  font-size: 0.875rem !important; /* text-sm */
+}
+
+/* Standardize external link icons to text-xs (0.75rem) */
+.fas.fa-external-link-alt,
+i[class*="fa-external-link"] {
+  font-size: 0.75rem !important; /* text-xs */
+}
+
+/* Standardize tool names in vibe coding section to text-sm */
+.text-xs.text-emerald-600,
+.text-xs.text-blue-600,
+.text-xs.text-purple-600,
+.text-xs.text-green-600,
+.text-xs.text-red-600,
+.text-xs.text-amber-600,
+.text-xs.text-cyan-600,
+.text-xs.text-rose-600,
+span[class*="text-xs"][class*="text-emerald"],
+span[class*="text-xs"][class*="text-blue"],
+span[class*="text-xs"][class*="text-purple"],
+span[class*="text-xs"][class*="text-green"],
+span[class*="text-xs"][class*="text-red"],
+span[class*="text-xs"][class*="text-amber"],
+span[class*="text-xs"][class*="text-cyan"],
+span[class*="text-xs"][class*="text-rose"] {
+  font-size: 0.875rem !important; /* text-sm */
+}
+
+/* Dark mode variants for tool names */
+.dark .text-xs.text-emerald-400,
+.dark .text-xs.text-blue-400,
+.dark .text-xs.text-purple-400,
+.dark .text-xs.text-green-400,
+.dark .text-xs.text-red-400,
+.dark .text-xs.text-amber-400,
+.dark .text-xs.text-cyan-400,
+.dark .text-xs.text-rose-400,
+.dark span[class*="text-xs"][class*="text-emerald"],
+.dark span[class*="text-xs"][class*="text-blue"],
+.dark span[class*="text-xs"][class*="text-purple"],
+.dark span[class*="text-xs"][class*="text-green"],
+.dark span[class*="text-xs"][class*="text-red"],
+.dark span[class*="text-xs"][class*="text-amber"],
+.dark span[class*="text-xs"][class*="text-cyan"],
+.dark span[class*="text-xs"][class*="text-rose"] {
+  font-size: 0.875rem !important; /* text-sm */
+}
+
+/* Standardize gallery overlay text */
+.text-xs.bg-blue-500\/50,
+.text-xs.bg-green-500\/50,
+.text-xs.bg-purple-500\/50,
+.text-xs.bg-indigo-500\/50,
+.text-xs.bg-red-500\/50,
+.text-xs.bg-amber-500\/50,
+.text-xs.bg-cyan-500\/50,
+.text-xs.bg-rose-500\/50,
+div[class*="text-xs"][class*="bg-"][class*="\/50"] {
+  font-size: 0.75rem !important; /* Keep text-xs for overlay badges */
+}
+
+/* Standardize description text under tool names */
+.text-xs.text-gray-500,
+.text-xs.text-gray-400,
+p[class*="text-xs"][class*="text-gray"] {
+  font-size: 0.75rem !important; /* Keep text-xs for descriptions */
+}
+
+/* Mobile specific font size adjustments */
+@media (max-width: 768px) {
+  /* Ensure all content labels are readable on mobile */
+  span[class*="bg-"][class*="text-"][class*="rounded-full"][class*="font-medium"] {
+    font-size: 0.8rem !important; /* Slightly smaller on mobile */
+    padding: 0.35rem 0.75rem !important;
+  }
+  
+  /* Tool names should be readable on mobile */
+  span[class*="text-xs"][class*="text-emerald"],
+  span[class*="text-xs"][class*="text-blue"],
+  span[class*="text-xs"][class*="text-purple"],
+  span[class*="text-xs"][class*="text-green"],
+  span[class*="text-xs"][class*="text-red"],
+  span[class*="text-xs"][class*="text-amber"],
+  span[class*="text-xs"][class*="text-cyan"],
+  span[class*="text-xs"][class*="text-rose"] {
+    font-size: 0.8rem !important;
+  }
+  
+  /* External link icons should remain small */
+  .fas.fa-external-link-alt,
+  i[class*="fa-external-link"] {
+    font-size: 0.7rem !important;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 374px) {
+  /* Further adjust for very small screens */
+  span[class*="bg-"][class*="text-"][class*="rounded-full"][class*="font-medium"] {
+    font-size: 0.75rem !important;
+    padding: 0.25rem 0.5rem !important;
+  }
+  
+  span[class*="text-xs"][class*="text-emerald"],
+  span[class*="text-xs"][class*="text-blue"],
+  span[class*="text-xs"][class*="text-purple"],
+  span[class*="text-xs"][class*="text-green"],
+  span[class*="text-xs"][class*="text-red"],
+  span[class*="text-xs"][class*="text-amber"],
+  span[class*="text-xs"][class*="text-cyan"],
+  span[class*="text-xs"][class*="text-rose"] {
+    font-size: 0.75rem !important;
+  }
+}

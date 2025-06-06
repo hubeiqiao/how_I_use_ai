@@ -25,6 +25,23 @@
   <link rel="icon" href="https://pbs.twimg.com/profile_images/1926465242164289538/XdrQhdiw_400x400.jpg">
   
   <script>
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+      if (event.matches) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    });
+  </script>
+
+  <script>
     tailwind.config = {
       darkMode: 'class',
     }
@@ -71,7 +88,7 @@
               <div class="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-blue-400 dark:border-blue-500 shadow-xl transform hover:scale-105 transition-transform duration-300">
                 <img src="https://pbs.twimg.com/profile_images/1926465242164289538/XdrQhdiw_400x400.jpg" alt="Joe Hu" class="w-full h-full object-cover">
               </div>
-              <div class="absolute -bottom-1 -right-1 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm shadow-md border-2 border-white dark:border-gray-800">
+              <div class="absolute -bottom-1 -right-1 w-6 h-6 md:w-8 md:h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs md:text-sm shadow-md border-2 border-white dark:border-gray-800">
                 <i class="fas fa-check"></i>
               </div>
             </div>
@@ -113,7 +130,7 @@
       
       <!-- Most Frequently Used Models - Apple-inspired design -->
       <div class="mb-16">
-        <h3 class="text-3xl font-semibold mb-8 text-blue-600 dark:text-blue-400 flex items-center">
+        <h3 class="text-2xl sm:text-3xl font-semibold mb-8 text-blue-600 dark:text-blue-400 flex items-center">
           <div class="p-3 rounded-xl bg-blue-50 dark:bg-blue-900/30 mr-4 shadow-sm">
             <i class="fas fa-star text-blue-600 dark:text-blue-400 text-xl"></i>
           </div>
@@ -135,13 +152,13 @@
                 </div>
               </div>
               <p class="text-gray-700 dark:text-gray-300 mb-6 text-lg">Primary choice for short content.</p>
-              <div class="flex justify-between items-center flex-wrap gap-3">
+              <div class="flex items-center flex-wrap gap-3">
                 <div class="flex flex-wrap gap-2">
-                  <span class="bg-blue-50 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300 px-4 py-2 rounded-full text-base font-medium flex items-center">
+                  <span class="bg-blue-50 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium flex items-center">
                     <i class="fas fa-file-alt mr-2"></i> Short Content
                   </span>
                 </div>
-                <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" class="relative overflow-hidden inline-flex items-center px-5 py-2.5 bg-blue-600 text-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 text-base font-medium flex-shrink-0">
+                <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" class="relative overflow-hidden inline-flex items-center px-5 py-2.5 bg-blue-600 text-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 text-base font-medium flex-shrink-0 ml-auto">
                   <span class="relative z-10 flex items-center">
                     Visit <i class="fas fa-external-link-alt ml-2 text-sm"></i>
                   </span>
@@ -165,13 +182,13 @@
                 </div>
               </div>
               <p class="text-gray-700 dark:text-gray-300 mb-6 text-lg">Preferred for long content and complex tasks.</p>
-              <div class="flex justify-between items-center flex-wrap gap-3">
+              <div class="flex items-center flex-wrap gap-3">
                 <div class="flex flex-wrap gap-2">
-                  <span class="bg-purple-50 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300 px-4 py-2 rounded-full text-base font-medium flex items-center">
+                  <span class="bg-purple-50 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300 px-4 py-2 rounded-full text-sm font-medium flex items-center">
                     <i class="fas fa-file-alt mr-2"></i> Long Content
                   </span>
                 </div>
-                <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer" class="relative overflow-hidden inline-flex items-center px-5 py-2.5 bg-purple-600 text-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 text-base font-medium flex-shrink-0">
+                <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer" class="relative overflow-hidden inline-flex items-center px-5 py-2.5 bg-purple-600 text-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 text-base font-medium flex-shrink-0 ml-auto">
                   <span class="relative z-10 flex items-center">
                     Visit <i class="fas fa-external-link-alt ml-2 text-sm"></i>
                   </span>
@@ -198,40 +215,40 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
 
         <!-- Card 1: Search & Deep Research -->
-        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all card-hover h-full lg:col-span-2">
-          <div class="flex items-center gap-4 mb-5">
-            <div class="p-3 bg-green-50 dark:bg-green-900/20 rounded-xl shadow-sm">
-              <i class="fas fa-search text-green-500 dark:text-green-400"></i>
+        <div class="bg-white/70 dark:bg-gray-800/70 backdrop-blur-md rounded-2xl p-6 border border-gray-200 dark:border-gray-700/60 shadow-lg hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 h-full lg:col-span-2">
+          <div class="flex items-center gap-5 mb-6">
+            <div class="w-12 h-12 flex items-center justify-center bg-green-100 dark:bg-green-900/30 rounded-xl shadow-md">
+              <i class="fas fa-search text-2xl text-green-600 dark:text-green-400"></i>
             </div>
-            <h3 class="font-medium text-lg text-gray-800 dark:text-gray-200">Search & Deep Research</h3>
+            <h3 class="font-semibold text-xl text-gray-800 dark:text-gray-200">Search & Deep Research</h3>
           </div>
           <div class="space-y-3">
-            <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" class="flex items-center p-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-xl transition-all">
+            <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" class="flex items-center p-3.5 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-xl transition-all">
               <div class="tool-logo logo-chatgpt mr-3">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMdM9MEQ0ExL1PmInT3U5I8v63YXBEdoIT0Q&s" alt="ChatGPT logo">
               </div>
               <span class="font-medium dark:text-gray-200">ChatGPT</span> <i class="fas fa-external-link-alt text-xs ml-1 opacity-60 dark:text-gray-400"></i>
             </a>
-            <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer" class="flex items-center p-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-xl transition-all">
+            <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer" class="flex items-center p-3.5 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-xl transition-all">
               <div class="tool-logo logo-gemini mr-3">
                 <img src="https://static.vecteezy.com/system/resources/previews/055/687/055/non_2x/rectangle-gemini-google-icon-symbol-logo-free-png.png" alt="Gemini logo">
               </div>
               <span class="font-medium dark:text-gray-200">Gemini</span> <i class="fas fa-external-link-alt text-xs ml-1 opacity-60 dark:text-gray-400"></i>
             </a>
-            <a href="https://grok.com/" target="_blank" rel="noopener noreferrer" class="flex items-center p-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-xl transition-all">
+            <a href="https://grok.com/" target="_blank" rel="noopener noreferrer" class="flex items-center p-3.5 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-xl transition-all">
               <div class="tool-logo logo-grok mr-3">
                 <img src="https://pbs.twimg.com/profile_images/1893219113717342208/Vgg2hEPa_400x400.jpg" alt="Grok logo">
               </div>
               <span class="font-medium dark:text-gray-200">Grok</span> <i class="fas fa-external-link-alt text-xs ml-1 opacity-60 dark:text-gray-400"></i>
             </a>
-            <a href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer" class="flex items-center p-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-xl transition-all">
+            <a href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer" class="flex items-center p-3.5 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-xl transition-all">
               <div class="tool-logo logo-perplexity mr-3">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdFSv1lxsEwowysGSVpPBM_VMwocDGqxqRyg&s" alt="Perplexity logo">
               </div>
               <span class="font-medium dark:text-gray-200">Perplexity</span> <i class="fas fa-external-link-alt text-xs ml-1 opacity-60 dark:text-gray-400"></i>
             </a>
           </div>
-          <div class="mt-4 p-3 bg-gray-50 dark:bg-gray-900/60 rounded-xl text-sm">
+          <div class="mt-6 p-4 bg-gray-50/80 dark:bg-gray-900/50 rounded-xl text-sm border border-gray-200/80 dark:border-gray-700/30">
             <p class="text-gray-600 dark:text-gray-400">
               <strong class="text-green-600 dark:text-green-400">Strategy:</strong> Use multiple tools in parallel, then validate, verify, compare, and combine all findings.
             </p>
@@ -239,23 +256,23 @@
         </div>
 
         <!-- New Wrapper for Quick Fact-Checking and Proofread -->
-        <div class="flex flex-col h-full lg:col-start-3 space-y-4">
+        <div class="flex flex-col h-full lg:col-start-3 space-y-8">
           <!-- Card 2: Quick Fact-Checking -->
-          <div class="bg-white dark:bg-gray-800 rounded-2xl p-4 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all card-hover flex-1 quick-fact-checking">
-            <div class="flex items-center gap-4 mb-4">
-              <div class="p-3 bg-red-50 dark:bg-red-900/20 rounded-xl shadow-sm">
-                <i class="fas fa-check-circle text-red-500 dark:text-red-400"></i>
+          <div class="bg-white/70 dark:bg-gray-800/70 backdrop-blur-md rounded-2xl p-6 border border-gray-200 dark:border-gray-700/60 shadow-lg hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex-1">
+            <div class="flex items-center gap-5 mb-6">
+              <div class="w-12 h-12 flex items-center justify-center bg-red-100 dark:bg-red-900/30 rounded-xl shadow-md">
+                <i class="fas fa-check-circle text-2xl text-red-600 dark:text-red-400"></i>
               </div>
-              <h3 class="font-medium text-lg text-gray-800 dark:text-gray-200">Quick Fact-Checking (on Twitter/X)</h3>
+              <h3 class="font-semibold text-xl text-gray-800 dark:text-gray-200">Quick Fact-Checking<br>(on Twitter/X)</h3>
             </div>
             <div class="space-y-2">
-              <a href="https://x.com/grok" target="_blank" rel="noopener noreferrer" class="flex items-center p-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-xl transition-all">
+              <a href="https://x.com/grok" target="_blank" rel="noopener noreferrer" class="flex items-center p-3.5 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-xl transition-all">
                 <div class="tool-logo logo-grok mr-3">
                   <img src="https://pbs.twimg.com/profile_images/1893219113717342208/Vgg2hEPa_400x400.jpg" alt="Grok logo">
                 </div>
                 <span class="font-medium dark:text-gray-200">Grok / Gork</span> <i class="fas fa-external-link-alt text-xs ml-1 opacity-60 dark:text-gray-400"></i>
               </a>
-              <a href="https://x.com/AskPerplexity" target="_blank" rel="noopener noreferrer" class="flex items-center p-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-xl transition-all">
+              <a href="https://x.com/AskPerplexity" target="_blank" rel="noopener noreferrer" class="flex items-center p-3.5 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-xl transition-all">
                 <div class="tool-logo logo-perplexity mr-3">
                   <img src="https://pbs.twimg.com/profile_images/1883596510858006528/fvRvFT2g_400x400.jpg" alt="Ask Perplexity logo">
                 </div>
@@ -264,15 +281,15 @@
             </div>
           </div>
           <!-- Card 3: Proofread -->
-          <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all card-hover flex-1">
-            <div class="flex items-center gap-4 mb-5">
-              <div class="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl shadow-sm">
-                <i class="fas fa-edit text-purple-500 dark:text-purple-400"></i>
+          <div class="bg-white/70 dark:bg-gray-800/70 backdrop-blur-md rounded-2xl p-6 border border-gray-200 dark:border-gray-700/60 shadow-lg hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex-1">
+            <div class="flex items-center gap-5 mb-6">
+              <div class="w-12 h-12 flex items-center justify-center bg-purple-100 dark:bg-purple-900/30 rounded-xl shadow-md">
+                <i class="fas fa-edit text-2xl text-purple-600 dark:text-purple-400"></i>
               </div>
-              <h3 class="font-medium text-lg text-gray-800 dark:text-gray-200">Proofread</h3>
+              <h3 class="font-semibold text-xl text-gray-800 dark:text-gray-200">Proofread</h3>
             </div>
             <div class="space-y-3">
-              <a href="https://chatgpt.com/g/g-aI66lwHdN-english-translator" target="_blank" rel="noopener noreferrer" class="flex items-center p-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-xl transition-all">
+              <a href="https://chatgpt.com/g/g-aI66lwHdN-english-translator" target="_blank" rel="noopener noreferrer" class="flex items-center p-3.5 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-xl transition-all">
                 <div class="tool-logo logo-chatgpt mr-3">
                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMdM9MEQ0ExL1PmInT3U5I8v63YXBEdoIT0Q&s" alt="ChatGPT logo">
                 </div>
@@ -283,15 +300,15 @@
         </div>
 
         <!-- Card 6: Vibe Coding (Spans 2 Columns on LG) -->
-        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all card-hover h-full lg:col-span-2">
-          <div class="flex items-center gap-4 mb-5">
-            <div class="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl shadow-sm">
-              <i class="fas fa-code text-emerald-500 dark:text-emerald-400"></i>
+        <div class="bg-white/70 dark:bg-gray-800/70 backdrop-blur-md rounded-2xl p-6 border border-gray-200 dark:border-gray-700/60 shadow-lg hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 h-full lg:col-span-2">
+          <div class="flex items-center gap-5 mb-6">
+            <div class="w-12 h-12 flex items-center justify-center bg-emerald-100 dark:bg-emerald-900/30 rounded-xl shadow-md">
+              <i class="fas fa-code text-2xl text-emerald-600 dark:text-emerald-400"></i>
             </div>
-            <h3 class="font-medium text-lg text-gray-800 dark:text-gray-200">Vibe Coding</h3>
+            <h3 class="font-semibold text-xl text-gray-800 dark:text-gray-200">Vibe Coding</h3>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
-            <div class="bg-gray-50 dark:bg-gray-900/60 rounded-xl p-4">
+            <div class="bg-gray-100 dark:bg-gray-900/50 rounded-xl p-4 border border-gray-200 dark:border-gray-700/30">
               <div class="flex items-start">
                 <div class="tool-logo logo-cursor mr-3">
                   <img src="https://images.prismic.io/sacra/Z0Sul68jQArT1Sb7_cursorlogo.png?auto=format,compress" alt="Cursor logo">
@@ -301,12 +318,12 @@
                     Cursor <i class="fas fa-external-link-alt text-xs opacity-60"></i>
                   </a>
                   <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                    Primary tool. Using: Claude Sonnet 4 and Gemini 2.5 Pro.
+                    Primary tool. Using: Claude 4 Sonnet and Gemini 2.5 Pro.
                   </p>
                 </div>
               </div>
             </div>
-            <div class="bg-gray-50 dark:bg-gray-900/60 rounded-xl p-4">
+            <div class="bg-gray-100 dark:bg-gray-900/50 rounded-xl p-4 border border-gray-200 dark:border-gray-700/30">
               <div class="flex items-start">
                 <div class="tool-logo logo-windsurf mr-3">
                   <img src="https://exafunction.github.io/public/brand/windsurf-app-icon.png" alt="Windsurf logo">
@@ -321,61 +338,61 @@
             </div>
           </div>
           <div class="grid grid-cols-3 md:grid-cols-5 gap-3">
-            <a href="https://lovable.dev/" target="_blank" rel="noopener noreferrer" class="flex flex-1 h-full flex-col items-center justify-center p-3 bg-gray-50 dark:bg-gray-900/60 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-all text-center">
-              <div class="tool-logo logo-lovable mb-2">
+            <a href="https://lovable.dev/" target="_blank" rel="noopener noreferrer" class="flex flex-1 h-full flex-col items-center justify-center p-3 bg-gray-100 dark:bg-gray-900/50 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-xl transition-all text-center border border-gray-200 dark:border-gray-700/30">
+              <div class="tool-logo logo-lovable mb-2 translate-x-1">
                 <img src="https://avatars.githubusercontent.com/u/148472368?s=200&v=4" alt="Lovable logo">
               </div>
-              <span class="text-xs text-emerald-600 dark:text-emerald-400">Lovable</span>
+              <span class="text-sm text-emerald-600 dark:text-emerald-400">Lovable</span>
             </a>
-            <a href="https://replit.com/~" target="_blank" rel="noopener noreferrer" class="flex flex-1 h-full flex-col items-center justify-center p-3 bg-gray-50 dark:bg-gray-900/60 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-all text-center">
-              <div class="tool-logo logo-replit mb-2">
+            <a href="https://replit.com/~" target="_blank" rel="noopener noreferrer" class="flex flex-1 h-full flex-col items-center justify-center p-3 bg-gray-100 dark:bg-gray-900/50 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-xl transition-all text-center border border-gray-200 dark:border-gray-700/30">
+              <div class="tool-logo logo-replit mb-2 translate-x-1">
                 <img src="https://play-lh.googleusercontent.com/baV9RL2D0iV8JkTtCzSxeLf6XxCJMWQYbyXMqyQfc0OQGtjkCyUenUbLb5tefYfMxfU" alt="Replit logo">
               </div>
-              <span class="text-xs text-emerald-600 dark:text-emerald-400">Replit</span>
+              <span class="text-sm text-emerald-600 dark:text-emerald-400">Replit</span>
             </a>
-            <a href="https://bolt.new/" target="_blank" rel="noopener noreferrer" class="flex flex-1 h-full flex-col items-center justify-center p-3 bg-gray-50 dark:bg-gray-900/60 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-all text-center">
-              <div class="tool-logo logo-bolt mb-2">
+            <a href="https://bolt.new/" target="_blank" rel="noopener noreferrer" class="flex flex-1 h-full flex-col items-center justify-center p-3 bg-gray-100 dark:bg-gray-900/50 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-xl transition-all text-center border border-gray-200 dark:border-gray-700/30">
+              <div class="tool-logo logo-bolt mb-2 translate-x-1">
                 <img src="https://pbs.twimg.com/profile_images/1880702021122342912/fe9TlQqJ_400x400.jpg" alt="Bolt logo">
               </div>
-              <span class="text-xs text-emerald-600 dark:text-emerald-400">Bolt</span>
+              <span class="text-sm text-emerald-600 dark:text-emerald-400">Bolt</span>
             </a>
-            <a href="https://v0.dev/" target="_blank" rel="noopener noreferrer" class="flex flex-1 h-full flex-col items-center justify-center p-3 bg-gray-50 dark:bg-gray-900/60 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-all text-center">
-              <div class="tool-logo logo-v0 mb-2">
+            <a href="https://v0.dev/" target="_blank" rel="noopener noreferrer" class="flex flex-1 h-full flex-col items-center justify-center p-3 bg-gray-100 dark:bg-gray-900/50 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-xl transition-all text-center border border-gray-200 dark:border-gray-700/30">
+              <div class="tool-logo logo-v0 mb-2 translate-x-1">
                 <img src="https://cdn-1.webcatalog.io/catalog/v0/v0-icon-filled-256.png?v=1719421508147" alt="v0 logo">
               </div>
-              <span class="text-xs text-emerald-600 dark:text-emerald-400">v0</span>
+              <span class="text-sm text-emerald-600 dark:text-emerald-400">v0</span>
             </a>
-            <a href="https://firebase.studio/" target="_blank" rel="noopener noreferrer" class="flex flex-1 h-full flex-col items-center justify-center p-3 bg-gray-50 dark:bg-gray-900/60 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-all text-center">
-              <div class="tool-logo logo-firebase mb-2">
+            <a href="https://firebase.studio/" target="_blank" rel="noopener noreferrer" class="flex flex-1 h-full flex-col items-center justify-center p-3 bg-gray-100 dark:bg-gray-900/50 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-xl transition-all text-center border border-gray-200 dark:border-gray-700/30">
+              <div class="tool-logo logo-firebase mb-2 translate-x-1">
                 <img src="https://firebase.google.com/static/images/brand-guidelines/logo-logomark.png" alt="Firebase logo">
               </div>
-              <span class="text-xs text-emerald-600 dark:text-emerald-400">Firebase</span>
+              <span class="text-sm text-emerald-600 dark:text-emerald-400">Firebase</span>
             </a>
           </div>
         </div>
 
         <!-- Card 4: Writing -->
-        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all card-hover h-full">
-          <div class="flex items-center gap-4 mb-5">
-            <div class="p-3 bg-cyan-50 dark:bg-cyan-900/20 rounded-xl shadow-sm">
-              <i class="fas fa-pen-fancy text-cyan-500 dark:text-cyan-400"></i>
+        <div class="bg-white/70 dark:bg-gray-800/70 backdrop-blur-md rounded-2xl p-6 border border-gray-200 dark:border-gray-700/60 shadow-lg hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 h-full">
+          <div class="flex items-center gap-5 mb-6">
+            <div class="w-12 h-12 flex items-center justify-center bg-cyan-100 dark:bg-cyan-900/30 rounded-xl shadow-md">
+              <i class="fas fa-pen-fancy text-2xl text-cyan-600 dark:text-cyan-400"></i>
             </div>
-            <h3 class="font-medium text-lg text-gray-800 dark:text-gray-200">Writing</h3>
+            <h3 class="font-semibold text-xl text-gray-800 dark:text-gray-200">Writing</h3>
           </div>
           <div class="space-y-3">
-            <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" class="flex items-center p-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-xl transition-all">
+            <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" class="flex items-center p-3.5 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-xl transition-all">
               <div class="tool-logo logo-chatgpt mr-3">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMdM9MEQ0ExL1PmInT3U5I8v63YXBEdoIT0Q&s" alt="ChatGPT logo">
               </div>
               <span class="font-medium">ChatGPT (GPT 4.5)</span> <i class="fas fa-external-link-alt text-xs ml-1 opacity-60"></i>
             </a>
-            <a href="https://claude.ai/new" target="_blank" rel="noopener noreferrer" class="flex items-center p-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-xl transition-all">
+            <a href="https://claude.ai/new" target="_blank" rel="noopener noreferrer" class="flex items-center p-3.5 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-xl transition-all">
               <div class="tool-logo logo-claude mr-3">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRevooTPFq_cA8JVnh_Kvu8u2PFOKElVvscOA&s" alt="Claude logo">
               </div>
               <span class="font-medium">Claude (Sonnet 4)</span> <i class="fas fa-external-link-alt text-xs ml-1 opacity-60"></i>
             </a>
-            <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer" class="flex items-center p-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-xl transition-all">
+            <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer" class="flex items-center p-3.5 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-xl transition-all">
               <div class="tool-logo logo-gemini mr-3">
                 <img src="https://cdn2.futurepedia.io/2025-03-25T23-10-16.323Z-cU7rqxv4EEhQBdfuMM-fL_vGnMQKsqmZ0.blob?w=256" alt="Google AI Studio logo">
               </div>
@@ -385,15 +402,15 @@
         </div>
 
         <!-- Card 5: Voice/Video Interaction -->
-        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all card-hover h-full">
-          <div class="flex items-center gap-4 mb-5">
-            <div class="p-3 bg-violet-50 dark:bg-violet-900/20 rounded-xl shadow-sm">
-              <i class="fas fa-microphone text-violet-500 dark:text-violet-400"></i>
+        <div class="bg-white/70 dark:bg-gray-800/70 backdrop-blur-md rounded-2xl p-6 border border-gray-200 dark:border-gray-700/60 shadow-lg hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 h-full">
+          <div class="flex items-center gap-5 mb-6">
+            <div class="w-12 h-12 flex items-center justify-center bg-violet-100 dark:bg-violet-900/30 rounded-xl shadow-md">
+              <i class="fas fa-microphone text-2xl text-violet-600 dark:text-violet-400"></i>
             </div>
-            <h3 class="font-medium text-lg text-gray-800 dark:text-gray-200">Voice/Video Interaction</h3>
+            <h3 class="font-semibold text-xl text-gray-800 dark:text-gray-200">Voice/Video Interaction</h3>
           </div>
           <div class="space-y-3">
-            <a href="https://grok.com/" target="_blank" rel="noopener noreferrer" class="flex items-center p-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-xl transition-all">
+            <a href="https://grok.com/" target="_blank" rel="noopener noreferrer" class="flex items-center p-3.5 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-xl transition-all">
               <div class="tool-logo logo-grok mr-3">
                 <img src="https://pbs.twimg.com/profile_images/1893219113717342208/Vgg2hEPa_400x400.jpg" alt="Grok logo">
               </div>
@@ -402,7 +419,7 @@
                 <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Best UX with preset instructions</p>
               </div>
             </a>
-            <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" class="flex items-center p-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-xl transition-all">
+            <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" class="flex items-center p-3.5 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-xl transition-all">
               <div class="tool-logo logo-chatgpt mr-3">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMdM9MEQ0ExL1PmInT3U5I8v63YXBEdoIT0Q&s" alt="ChatGPT logo">
               </div>
@@ -416,15 +433,15 @@
         </div>
         
         <!-- Card 7: Image Generation -->
-        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all card-hover h-full">
-          <div class="flex items-center gap-4 mb-5">
-            <div class="p-3 bg-rose-50 dark:bg-rose-900/20 rounded-xl shadow-sm">
-              <i class="fas fa-image text-rose-500 dark:text-rose-400"></i>
+        <div class="bg-white/70 dark:bg-gray-800/70 backdrop-blur-md rounded-2xl p-6 border border-gray-200 dark:border-gray-700/60 shadow-lg hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 h-full">
+          <div class="flex items-center gap-5 mb-6">
+            <div class="w-12 h-12 flex items-center justify-center bg-rose-100 dark:bg-rose-900/30 rounded-xl shadow-md">
+              <i class="fas fa-image text-2xl text-rose-600 dark:text-rose-400"></i>
             </div>
-            <h3 class="font-medium text-lg text-gray-800 dark:text-gray-200">Image Generation</h3>
+            <h3 class="font-semibold text-xl text-gray-800 dark:text-gray-200">Image Generation</h3>
           </div>
           <div class="space-y-3">
-            <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" class="flex items-center p-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-xl transition-all">
+            <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" class="flex items-center p-3.5 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-xl transition-all">
               <div class="tool-logo logo-chatgpt mr-3">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMdM9MEQ0ExL1PmInT3U5I8v63YXBEdoIT0Q&s" alt="ChatGPT logo">
               </div>
@@ -434,24 +451,24 @@
         </div>
 
         <!-- Card 8: Document/Data Visualization -->
-        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all card-hover h-full">
-          <div class="flex items-center gap-4 mb-5">
-            <div class="p-3 bg-amber-50 dark:bg-amber-900/20 rounded-xl shadow-sm">
-              <i class="fas fa-file-alt text-amber-500 dark:text-amber-400"></i>
+        <div class="bg-white/70 dark:bg-gray-800/70 backdrop-blur-md rounded-2xl p-6 border border-gray-200 dark:border-gray-700/60 shadow-lg hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 h-full">
+          <div class="flex items-center gap-5 mb-6">
+            <div class="w-12 h-12 flex items-center justify-center bg-amber-100 dark:bg-amber-900/30 rounded-xl shadow-md">
+              <i class="fas fa-file-alt text-2xl text-amber-600 dark:text-amber-400"></i>
             </div>
-            <h3 class="font-medium text-lg text-gray-800 dark:text-gray-200">Document/Data Visualization</h3>
+            <h3 class="font-semibold text-xl text-gray-800 dark:text-gray-200">Document/Data Visualization</h3>
           </div>
           <div class="space-y-3">
-            <a href="https://console.anthropic.com/dashboard" target="_blank" rel="noopener noreferrer" class="flex items-center p-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-xl transition-all">
+            <a href="https://console.anthropic.com/dashboard" target="_blank" rel="noopener noreferrer" class="flex items-center p-3.5 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-xl transition-all">
               <div class="tool-logo logo-claude mr-3">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRevooTPFq_cA8JVnh_Kvu8u2PFOKElVvscOA&s" alt="Claude logo">
               </div>
               <div class="flex-1">
-                <span class="font-medium">Claude Sonnet 4</span> <i class="fas fa-external-link-alt text-xs ml-1 opacity-60"></i>
+                <span class="font-medium">Claude 4 Sonnet</span> <i class="fas fa-external-link-alt text-xs ml-1 opacity-60"></i>
                 <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">via API</p>
               </div>
             </a>
-            <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer" class="flex items-center p-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-xl transition-all">
+            <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer" class="flex items-center p-3.5 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-xl transition-all">
               <div class="tool-logo logo-gemini mr-3">
                 <img src="https://cdn2.futurepedia.io/2025-03-25T23-10-16.323Z-cU7rqxv4EEhQBdfuMM-fL_vGnMQKsqmZ0.blob?w=256" alt="Gemini logo">
               </div>
@@ -683,7 +700,7 @@
               </div>
 
               <p class="mt-4 text-gray-700 dark:text-gray-300">
-                For more formal or high-stakes writing, I turn to GPT-4.5 for proofreading or use Claude Sonnet 4 to enhance the overall quality and maintain nuance in complex content.
+                For more formal or high-stakes writing, I turn to GPT-4.5 for proofreading or use Claude 4 Sonnet to enhance the overall quality and maintain nuance in complex content.
               </p>
             </div>
           </div>
@@ -702,7 +719,7 @@
     <div class="p-4 bg-violet-100 dark:bg-violet-900/40 rounded-2xl mr-5 shadow-sm">
       <i class="fas fa-microphone-alt text-violet-600 dark:text-violet-400 text-2xl"></i>
     </div>
-    <h3 class="text-3xl font-semibold tracking-tight">Voice and Video Interaction</h3>
+    <h3 class="text-2xl font-semibold">Voice and Video Interaction</h3>
   </div>
   
   <p class="mb-8 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
@@ -727,19 +744,19 @@
     <div class="bg-white dark:bg-gray-800/90 backdrop-blur-md rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-lg transition-all duration-300 hover:transform hover:scale-[1.02] group">
       <div class="h-1.5 bg-gradient-to-r from-violet-500 to-violet-600"></div>
       <div class="p-8">
-        <div class="flex items-center mb-6">
+        <div class="flex items-center">
           <div class="w-16 h-16 bg-violet-50 dark:bg-violet-900/30 rounded-xl flex items-center justify-center mr-5 shadow-sm group-hover:scale-105 transition-transform duration-500">
             <img src="https://pbs.twimg.com/profile_images/1893219113717342208/Vgg2hEPa_400x400.jpg" alt="Grok logo" class="w-12 h-12 rounded-xl">
           </div>
           <div>
             <h4 class="text-2xl font-medium group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">Grok</h4>
-            <p class="text-gray-500 dark:text-gray-400 mt-1">Twitter/X voice assistant</p>
+            <p class="text-gray-500 dark:text-gray-400 md:mt-1">Grok's voice mode</p>
+            <div class="mt-4">
+              <span class="inline-block bg-violet-50 text-violet-800 dark:bg-violet-900/40 dark:text-violet-300 px-4 py-2 rounded-full text-sm font-medium">
+                Excellent UX with presets
+              </span>
+            </div>
           </div>
-        </div>
-        <div class="ml-21 pl-21">
-          <span class="inline-block bg-violet-50 text-violet-800 dark:bg-violet-900/40 dark:text-violet-300 px-4 py-2 rounded-full text-base font-medium">
-            Excellent UX with preset instructions
-          </span>
         </div>
       </div>
     </div>
@@ -748,19 +765,19 @@
     <div class="bg-white dark:bg-gray-800/90 backdrop-blur-md rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-lg transition-all duration-300 hover:transform hover:scale-[1.02] group">
       <div class="h-1.5 bg-gradient-to-r from-blue-500 to-blue-600"></div>
       <div class="p-8">
-        <div class="flex items-center mb-6">
+        <div class="flex items-center">
           <div class="w-16 h-16 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mr-5 shadow-sm group-hover:scale-105 transition-transform duration-500">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMdM9MEQ0ExL1PmInT3U5I8v63YXBEdoIT0Q&s" alt="ChatGPT logo" class="w-12 h-12 rounded-xl">
           </div>
           <div>
             <h4 class="text-2xl font-medium group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">ChatGPT</h4>
-            <p class="text-gray-500 dark:text-gray-400 mt-1">OpenAI's voice interface</p>
+            <p class="text-gray-500 dark:text-gray-400 md:mt-1">ChatGPT's voice mode</p>
+            <div class="mt-4">
+              <span class="inline-block bg-blue-50 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium">
+                Superior voice quality
+              </span>
+            </div>
           </div>
-        </div>
-        <div class="ml-21 pl-21">
-          <span class="inline-block bg-blue-50 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300 px-4 py-2 rounded-full text-base font-medium">
-            Superior voice quality
-          </span>
         </div>
       </div>
     </div>
@@ -768,30 +785,30 @@
 
   <!-- Language Learning Application - refined for Apple-style aesthetics -->
   <div class="bg-gradient-to-br from-white to-indigo-50 dark:from-gray-800 dark:to-indigo-900/10 p-8 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-lg">
-    <div class="flex items-start mb-6">
+    <div class="flex items-center mb-4">
       <div class="p-4 bg-indigo-50 dark:bg-indigo-900/40 rounded-xl mr-5 shadow-sm">
         <i class="fas fa-graduation-cap text-indigo-600 dark:text-indigo-400 text-xl"></i>
       </div>
-      <div>
-        <h4 class="text-2xl font-medium mb-3">Language Learning Applications</h4>
-        <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-          These tools are excellent for language learning. One of my proudest creations is my IELTS Speaking Simulator, which provides realistic speaking practice with detailed feedback.
-        </p>
-      </div>
+      <h4 class="text-2xl font-semibold">Language Learning Applications</h4>
     </div>
+    <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
+      These tools are excellent for language learning. One of my proudest creations is my IELTS Speaking Simulator, which provides realistic speaking practice with detailed feedback.
+    </p>
     
     <a href="https://chatgpt.com/g/g-uGueIrCsT-ielts-speaking-simulator" target="_blank" rel="noopener noreferrer"
-       class="group flex items-center gap-6 bg-white dark:bg-gray-800 p-6 rounded-xl border border-indigo-100 dark:border-indigo-900/30 hover:shadow-xl transition-all duration-300 hover:transform hover:scale-[1.01] relative z-10">
-      <img src="https://github.com/hubeiqiao/IELTS-Speaking-Simulator/blob/main/IELTS%20Speaking%20Simulator%20icon.png?raw=true"
-           alt="IELTS Speaking Simulator logo" class="w-16 h-16 rounded-xl flex-shrink-0 shadow-sm">
-      <div>
-        <h5 class="text-xl font-medium mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">IELTS Speaking Simulator</h5>
-        <div class="flex items-center gap-6 text-gray-700 dark:text-gray-400">
-          <span class="font-bold text-lg"><i class="fas fa-star text-yellow-500 mr-1"></i> 4.4</span>
-          <span class="text-lg"><strong>50K+</strong> Conversations</span>
+       class="group flex flex-wrap items-center justify-between gap-x-6 gap-y-4 bg-white dark:bg-gray-800 p-6 rounded-xl border border-indigo-100 dark:border-indigo-900/30 hover:shadow-xl transition-all duration-300 hover:transform hover:scale-[1.01] relative z-10">
+      <div class="block md:flex md:items-center gap-4 md:gap-6"> <!-- Container for icon and text -->
+        <img src="https://github.com/hubeiqiao/IELTS-Speaking-Simulator/blob/main/IELTS%20Speaking%20Simulator%20icon.png?raw=true"
+             alt="IELTS Speaking Simulator logo" class="w-14 h-14 md:w-16 md:h-16 rounded-xl flex-shrink-0 shadow-sm">
+        <div class="mt-4 md:mt-0">
+          <h5 class="text-lg md:text-xl font-medium mb-1 md:mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">IELTS Speaking Simulator</h5>
+          <div class="text-gray-700 dark:text-gray-400 md:flex md:items-center md:gap-6">
+            <span class="font-bold text-base md:text-lg flex items-center"><i class="fas fa-star text-yellow-500 mr-1"></i> 4.4</span>
+            <span class="text-base md:text-lg block md:inline-block"><strong>50K+</strong> Conversations</span>
+          </div>
         </div>
       </div>
-      <span class="ml-auto text-indigo-600 dark:text-indigo-400 font-medium text-lg group-hover:translate-x-1 transition-transform">
+      <span class="text-indigo-600 dark:text-indigo-400 font-medium text-base md:text-lg group-hover:translate-x-1 transition-transform whitespace-nowrap self-end md:self-center">
         Try it now <i class="fas fa-arrow-right ml-1"></i>
       </span>
     </a>
@@ -820,7 +837,7 @@
               </div>
               <div>
                 <p class="mb-2 text-gray-700 dark:text-gray-300">
-              Since then, I've visualized numerous items using Claude Sonnet 4 and Gemini 2.5 Pro. I started
+              Since then, I've visualized numerous items using Claude 4 Sonnet and Gemini 2.5 Pro. I started
               with raw APIs, then experimented with Poe. Now, through 'vibe coding,' I use my own File Visualizer
               and Cursor for further modifications.
             </p>
@@ -846,7 +863,7 @@
                       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRevooTPFq_cA8JVnh_Kvu8u2PFOKElVvscOA&s" alt="Claude logo" class="w-10 h-10">
                 </div>
                     <div>
-                      <h5 class="text-xl font-medium group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">Claude Sonnet 4</h5>
+                      <h5 class="text-xl font-medium group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">Claude 4 Sonnet</h5>
                       <p class="text-sm text-gray-600 dark:text-gray-400">Via API</p>
                       <a href="https://console.anthropic.com/dashboard" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm text-purple-600 dark:text-purple-400 mt-1 hover:underline">
                         <i class="fas fa-external-link-alt mr-1"></i> Visit Dashboard
@@ -1100,7 +1117,7 @@
                 <h4 class="text-2xl font-medium text-blue-700 dark:text-blue-300 mb-3">Cursor</h4>
                 <p class="text-gray-600 dark:text-gray-400 mb-4 text-lg">My primary vibe coding tool, utilizing two powerful models:</p>
                 <div class="flex flex-wrap gap-3 mb-4">
-                  <span class="px-4 py-2 bg-purple-50 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300 rounded-full text-base font-medium">Claude Sonnet 4</span>
+                  <span class="px-4 py-2 bg-purple-50 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300 rounded-full text-base font-medium">Claude 4 Sonnet</span>
                   <span class="px-4 py-2 bg-indigo-50 text-indigo-800 dark:bg-indigo-900/40 dark:text-indigo-300 rounded-full text-base font-medium">Gemini 2.5 Pro</span>
                 </div>
                 <a href="https://cursor.so" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-blue-600 dark:text-blue-400 text-lg hover:underline group transition-all relative z-10">
@@ -1113,7 +1130,7 @@
 
           <!-- Additional Tools Grid - Apple-style icons -->
           <div class="mb-12">
-            <h4 class="text-2xl font-medium mb-6 flex items-center">
+            <h4 class="text-2xl font-semibold mb-6 flex items-center">
               <div class="p-3 bg-gray-100 dark:bg-gray-800 rounded-xl mr-3 shadow-sm flex items-center justify-center">
                 <i class="fas fa-tools text-gray-500 dark:text-gray-400"></i>
               </div>
@@ -1167,7 +1184,7 @@
 
           <!-- Projects Created - Apple-style cards -->
           <div class="mb-12">
-            <h4 class="text-2xl font-medium mb-6 flex items-center">
+            <h4 class="text-2xl font-semibold mb-6 flex items-center">
               <div class="p-3 bg-gray-100 dark:bg-gray-800 rounded-xl mr-3 shadow-sm flex items-center justify-center">
                 <i class="fas fa-rocket text-gray-500 dark:text-gray-400"></i>
               </div>

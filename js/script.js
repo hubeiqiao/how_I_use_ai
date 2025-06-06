@@ -1,20 +1,3 @@
-function _applyTheme(isDark) {
-  if (isDark) {
-    document.documentElement.classList.add('dark');
-    document.body.classList.add('bg-gray-950', 'text-gray-100');
-    document.body.classList.remove('bg-white', 'text-gray-900');
-  } else {
-    document.documentElement.classList.remove('dark');
-    document.body.classList.add('bg-white', 'text-gray-900');
-    document.body.classList.remove('bg-gray-950', 'text-gray-100');
-  }
-}
-
-// Set theme based on system preference
-const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-_applyTheme(prefersDarkScheme.matches);
-prefersDarkScheme.addEventListener('change', (e) => _applyTheme(e.matches));
-
 document.addEventListener('DOMContentLoaded', function() {
   // Fix model cards
   const modelCards = document.querySelectorAll('.flex.justify-between.items-center, .flex.justify-between.items-center.flex-wrap');
