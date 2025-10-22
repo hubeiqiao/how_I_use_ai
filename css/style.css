@@ -50,11 +50,20 @@ html {
   scroll-behavior: smooth;
 }
 
+html.dark {
+  background-color: #111827 !important;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   letter-spacing: -0.015em;
+}
+
+body.dark,
+.dark body {
+  background-color: #111827 !important;
 }
 
 /* Global typography updates */
