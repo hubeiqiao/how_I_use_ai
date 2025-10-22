@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/202505",
+      "destination": "/202505.html"
+    },
+    {
+      "source": "/202505/:path*",
+      "destination": "/202505.html"
+    },
+    {
+      "source": "/",
+      "destination": "/index.html"
+    }
+  ]
+}
