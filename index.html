@@ -25,20 +25,23 @@
   <link rel="icon" href="https://pbs.twimg.com/profile_images/1926465242164289538/XdrQhdiw_400x400.jpg">
   
   <script>
-    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-      if (event.matches) {
+    // Immediately apply dark mode based on system preference to avoid FOUC
+    (function() {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.documentElement.classList.add('dark');
       } else {
         document.documentElement.classList.remove('dark');
       }
-    });
+      
+      // Listen for system theme changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+        if (e.matches) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      });
+    })();
   </script>
 
   <script>
