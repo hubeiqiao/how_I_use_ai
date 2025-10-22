@@ -1,0 +1,24 @@
+{
+  "name": "how-i-use-ai",
+  "version": "1.0.0",
+  "description": "This project is the website version of the article \" [How I Use AI Tools Personally (May 2025)](https://joe-ai.pages.dev/) \" by Joe Hu.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hubeiqiao/how_I_use_ai.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/hubeiqiao/how_I_use_ai/issues"
+  },
+  "homepage": "https://github.com/hubeiqiao/how_I_use_ai#readme",
+  "dependencies": {
+    "@vercel/analytics": "^1.5.0"
+  }
+}
