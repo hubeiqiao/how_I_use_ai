@@ -58,28 +58,32 @@
 <body class="bg-white text-gray-900 transition-colors duration-300 dark:bg-gray-900 dark:text-gray-100">
   <!-- Header - Apple-inspired design -->
   <header class="sticky top-0 z-50 backdrop-blur-xl bg-white/70 dark:bg-gray-900/90 border-b border-gray-200 dark:border-gray-700/80 shadow-sm transition-colors">
-    <div class="container mx-auto px-4 md:px-6 py-3 md:py-5">
-      <div class="flex justify-between items-center">
-        <div class="flex items-center gap-2 md:gap-4">
-          <div class="w-8 h-8 md:w-12 md:h-12 rounded-xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-lg">
+    <div class="container mx-auto px-4 md:px-6 py-2 md:py-3">
+      <div class="flex items-center">
+        <div class="flex items-center gap-2 md:gap-4 flex-1 min-w-0">
+          <div class="w-8 h-8 md:w-10 md:h-10 rounded-xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-lg flex-shrink-0">
             <img src="https://pbs.twimg.com/profile_images/1926465242164289538/XdrQhdiw_400x400.jpg" alt="Joe Hu" class="w-full h-full object-cover">
           </div>
-          <h1 class="text-base sm:text-lg md:text-2xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">How I Use AI Tools Personally</h1>
+          <div class="flex items-center gap-2 md:gap-4 flex-wrap min-w-0">
+            <h1 class="text-sm sm:text-base md:text-xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">How I Use AI Tools Personally</h1>
+            <!-- Version Tabs - Hidden on mobile, shown on desktop -->
+            <div class="hidden lg:flex items-center gap-2">
+              <span class="text-xs text-gray-500 dark:text-gray-400">Version:</span>
+              <a href="https://hubeiqiao.com/blog/8f61d3ab-ecc8-4234-b397-e43cd7d08b53" target="_blank" rel="noopener noreferrer" class="px-2 py-1 text-xs rounded-lg bg-gray-100 dark:bg-gray-800/60 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700/80 transition-all">2023/04</a>
+              <a href="https://hubeiqiao.com/blog/1420df12-ec77-807a-8d7d-ca00a4225d28" target="_blank" rel="noopener noreferrer" class="px-2 py-1 text-xs rounded-lg bg-gray-100 dark:bg-gray-800/60 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700/80 transition-all">2024/11</a>
+              <span class="px-2 py-1 text-xs rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium shadow-sm">2025/05</span>
+              <a href="index.html" class="px-2 py-1 text-xs rounded-lg bg-gray-100 dark:bg-gray-800/60 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700/80 transition-all">2025/10</a>
+            </div>
+          </div>
         </div>
-        <div class="flex items-center gap-3 md:gap-5">
-          <a href="https://x.com/hubeiqiao" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-xl bg-gray-50 dark:bg-gray-800/80 text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-all hover:bg-gray-100 dark:hover:bg-gray-700/80">
-            <i class="fa-brands fa-x text-base md:text-lg"></i>
+        <div class="flex items-center gap-2 md:gap-3 flex-shrink-0 ml-4">
+          <a href="https://x.com/hubeiqiao" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-8 h-8 md:w-9 md:h-9 rounded-xl bg-gray-50 dark:bg-gray-800/80 text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-all hover:bg-gray-100 dark:hover:bg-gray-700/80">
+            <i class="fa-brands fa-x text-sm md:text-base"></i>
           </a>
-          <a href="https://www.linkedin.com/in/hubeiqiao/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-xl bg-gray-50 dark:bg-gray-800/80 text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-all hover:bg-gray-100 dark:hover:bg-gray-700/80">
-            <i class="fab fa-linkedin-in text-base md:text-lg"></i>
+          <a href="https://www.linkedin.com/in/hubeiqiao/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-8 h-8 md:w-9 md:h-9 rounded-xl bg-gray-50 dark:bg-gray-800/80 text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-all hover:bg-gray-100 dark:hover:bg-gray-700/80">
+            <i class="fab fa-linkedin-in text-sm md:text-base"></i>
           </a>
         </div>
-      </div>
-      <!-- Version Tabs -->
-      <div class="flex items-center gap-2 mt-3 pt-3 border-t border-gray-200 dark:border-gray-700/50">
-        <span class="text-xs md:text-sm text-gray-500 dark:text-gray-400 mr-2">Version:</span>
-        <span class="px-3 py-1.5 text-xs md:text-sm rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium shadow-sm">2025/05</span>
-        <a href="/" class="px-3 py-1.5 text-xs md:text-sm rounded-lg bg-gray-100 dark:bg-gray-800/60 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700/80 transition-all">2025/10</a>
       </div>
     </div>
   </header>

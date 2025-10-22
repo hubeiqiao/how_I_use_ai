@@ -1361,9 +1361,7 @@ h6 { font-size: 1.125rem; }
 .logo-bolt img,
 .logo-firebase img,
 .logo-notion img,
-.logo-arc img,
-.rounded-lg img,
-.rounded-xl img {
+.logo-arc img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -2288,5 +2286,107 @@ p[class*="text-xs"][class*="text-gray"] {
   span[class*="text-xs"][class*="text-cyan"],
   span[class*="text-xs"][class*="text-rose"] {
     font-size: 0.75rem !important;
+  }
+}
+
+/* Clickable image indicators */
+[onclick*="openImageModal"] {
+  position: relative;
+  cursor: pointer;
+}
+
+[onclick*="openImageModal"]::after {
+  content: '\f0b2';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+[onclick*="openImageModal"]:hover::after {
+  opacity: 1;
+}
+
+/* On mobile, always show the zoom icon */
+@media (max-width: 768px) {
+  [onclick*="openImageModal"]::after {
+    opacity: 0.8;
+  }
+}
+
+/* Active state for touch devices */
+[onclick*="openImageModal"]:active {
+  transform: scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+/* Active states for all buttons and interactive elements */
+button:active,
+a.inline-flex:active,
+a[class*="bg-"]:active {
+  transform: scale(0.97);
+  opacity: 0.9;
+}
+
+/* Active states for cards */
+.hover\:scale-\[1\.02\]:active,
+.hover\:shadow-xl:active {
+  transform: scale(0.99) !important;
+  transition: transform 0.1s ease;
+}
+
+/* Active state for carousel navigation buttons */
+button[onclick*="changeCarouselImage"]:active {
+  transform: translateY(-50%) scale(0.9);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.dark button[onclick*="changeCarouselImage"]:active {
+  background: rgba(31, 41, 55, 0.95);
+}
+
+/* Optimize decorative elements on mobile */
+@media (max-width: 768px) {
+  /* Reduce gradient blur circles on mobile */
+  .absolute.w-32.h-32.bg-amber-300\/20,
+  .absolute.w-32.h-32.bg-amber-600\/10,
+  .absolute.w-64.h-64.bg-gradient-to-tl {
+    display: none;
+  }
+  
+  /* Reduce padding on "What's New" and tip boxes */
+  .bg-gradient-to-r.from-amber-50.to-orange-50 {
+    padding: 1rem !important;
+  }
+  
+  /* Optimize pro tip boxes on mobile */
+  .relative.overflow-hidden.rounded-2xl.bg-gradient-to-br {
+    padding: 1rem !important;
+  }
+  
+  /* Back to top button on mobile - smaller and better positioned */
+  #backToTop {
+    width: 3rem;
+    height: 3rem;
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+  
+  #backToTop i {
+    font-size: 1rem;
   }
 }
