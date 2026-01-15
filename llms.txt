@@ -1,0 +1,24 @@
+# How I Use AI Tools Personally
+> Site by Joe Hu (https://hubeiqiao.com)
+
+## Current: January 2026
+My Claude Code Workflow: How a Product Person Ships Real Products
+- Document First: Write what you want before AI coding
+- Context Window: Manage the 200K token limit
+- Manual Testing: Your taste matters
+- Debugging: Act like a PM, provide evidence
+
+URL: https://ai.hubeiqiao.com/
+
+## Archive: October 2025
+Comprehensive AI tools overview covering document analysis, slide decks, diagrams, prototypes, video generation.
+URL: https://ai.hubeiqiao.com/202510
+
+## Archive: May 2025
+Original article on personal AI tool usage.
+URL: https://ai.hubeiqiao.com/202505
+
+## Author
+Joe Hu - Product Person & Vibe Engineer
+Website: https://hubeiqiao.com
+Twitter: @hubeiqiao

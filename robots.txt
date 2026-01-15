@@ -19,3 +19,7 @@ Allow: /
 
 Sitemap: https://ai.hubeiqiao.com/sitemap.xml
 
+# AI-friendly content
+# LLMs.txt: https://ai.hubeiqiao.com/llms.txt
+# RSS Feed: https://ai.hubeiqiao.com/feed.xml
+

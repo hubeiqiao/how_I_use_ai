@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://ai.hubeiqiao.com/">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
 
   <!-- Primary Meta Tags -->
   <title>How I Use AI Tools Personally (January 2026) - Joe Hu</title>
@@ -44,6 +46,14 @@
   <!-- LinkedIn specific -->
   <meta property="linkedin:owner" content="hubeiqiao">
 
+  <!-- Pinterest -->
+  <meta name="pinterest" content="nopin" description="false">
+  <meta name="pinterest:description" content="My Claude Code Workflow: How a Product Person Ships Real Products with AI">
+  <meta name="pinterest:url" content="https://ai.hubeiqiao.com/">
+
+  <!-- RSS Feed -->
+  <link rel="alternate" type="application/atom+xml" title="How I Use AI - Joe Hu" href="https://ai.hubeiqiao.com/feed.xml">
+
   <!-- Apple / iMessage -->
   <link rel="apple-touch-icon" sizes="180x180" href="Other resourecs/joe_speaking_icon.webp">
   <meta name="apple-mobile-web-app-title" content="How I Use AI">
@@ -83,6 +93,113 @@
       "@type": "WebPage",
       "@id": "https://ai.hubeiqiao.com/"
     }
+  }
+  </script>
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ai.hubeiqiao.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "January 2026",
+        "item": "https://ai.hubeiqiao.com/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- HowTo Schema for Claude Code Workflow -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "My Claude Code Workflow: How a Product Person Ships",
+    "description": "A 5-step workflow for shipping real products with Claude Code and Opus 4.5",
+    "totalTime": "PT30M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Document First",
+        "text": "Write what you want first without AI. Articulate your demands clearly before starting."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Use Plan Mode",
+        "text": "Use Plan Mode with ultrathink to break down tasks into smaller pieces."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Manage Context Window",
+        "text": "Keep context window under control by compacting and using subagents. The 200K token limit degrades quality as it fills."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Test Manually",
+        "text": "Manual testing is key to quality. Your taste matters - ensure output matches YOUR expectations."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 5,
+        "name": "Debug Like a PM",
+        "text": "When debugging, act like a PM and provide evidence. Push back when something seems off."
+      }
+    ]
+  }
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Claude Code?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Claude Code is Anthropic's agentic coding tool that runs in your terminal. Disguised as a developer tool, it's actually a general agent that handles any computer task via code or terminal."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the context window limit in Claude Code?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Opus 4.5 has a 200K token context window. Performance degrades as it fills up, especially in the last 20% which is described as 'poison' for quality."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the Document First approach?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Document First means articulating what you want before coding with AI. Most issues arise because you don't know what you want or haven't clarified your requirements."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is manual testing important with AI coding?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Manual testing is key to delivering better results with your taste. It ensures the output matches YOUR expectations, not just what AI thinks is correct."
+        }
+      }
+    ]
   }
   </script>
 
