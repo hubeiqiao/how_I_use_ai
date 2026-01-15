@@ -1,16 +1,20 @@
 {
   "rewrites": [
     {
+      "source": "/202510",
+      "destination": "/202510.html"
+    },
+    {
+      "source": "/202510/:path*",
+      "destination": "/202510.html"
+    },
+    {
       "source": "/202505",
       "destination": "/202505.html"
     },
     {
       "source": "/202505/:path*",
       "destination": "/202505.html"
-    },
-    {
-      "source": "/",
-      "destination": "/index.html"
     }
   ],
   "headers": [
